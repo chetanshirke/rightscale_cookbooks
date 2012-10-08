@@ -1,0 +1,30 @@
+{
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "version": "13.2.0",
+  "dependencies": {
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "providing": {
+  },
+  "recipes": {
+    "chetan::default": "This create directory in home folder."
+  },
+  "platforms": {
+  },
+  "maintainer": "RightScale, Inc.",
+  "replacing": {
+  },
+  "license": "Copyright RightScale, Inc. All rights reserved.",
+  "description": "Installs /home directory",
+  "maintainer_email": "support@rightscale.com",
+  "name": "chetan",
+  "groupings": {
+  },
+  "recommendations": {
+  }
+}
