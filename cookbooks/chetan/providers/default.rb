@@ -1,6 +1,6 @@
 action :stop do
   log "  Running stop sequence"
-  service "apache2" do
+  service "vsftpd" do
     action :start
     persist false
   end
@@ -9,7 +9,7 @@ end
 # Start apache
 action :start do
   log "  Running start sequence"
-  service "apache2" do
+  service "vsftpd" do
     action :start
     persist false
   end
@@ -18,7 +18,7 @@ end
 # Reload apache
 action :reload do
   log "  Running reload sequence"
-  service "apache2" do
+  service "vsftpd" do
     action :reload
     persist false
   end
@@ -42,4 +42,3 @@ action :install do
       package p
     end
   end
-
