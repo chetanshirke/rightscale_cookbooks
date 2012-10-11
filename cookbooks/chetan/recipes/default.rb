@@ -4,7 +4,7 @@ package "vsftpd" do
   action :install
 end
 
-app "vsftpd" do
+chetan "vsftpd" do
  action :start
 end
 
