@@ -9,6 +9,4 @@ version          "13.2.0"
 # supports "redhat", "~> 5.8"
 # supports "ubuntu", "~> 10.04", "~> 12.04"
 
-depends "rightscale"
-
 recipe  "chetan::default", "Installs the vsftpd application server."
