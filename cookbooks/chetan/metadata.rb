@@ -9,4 +9,4 @@ version          "13.2.0"
 # supports "redhat", "~> 5.8"
 # supports "ubuntu", "~> 10.04", "~> 12.04"
 
-recipe "chetan::default", "This create directory in home folder."
+recipe  "chetan::default", "Installs the vsftpd application server."

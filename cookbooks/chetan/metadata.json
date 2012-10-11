@@ -12,7 +12,7 @@
   "providing": {
   },
   "recipes": {
-    "chetan::default": "This create directory in home folder."
+    "chetan::default": "Installs the vsftpd application server."
   },
   "platforms": {
   },
