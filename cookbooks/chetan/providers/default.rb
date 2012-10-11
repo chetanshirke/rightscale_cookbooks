@@ -42,3 +42,4 @@ action :install do
       package p
     end
   end
+end
