@@ -14,11 +14,11 @@ depends "rightscale"
 recipe  "chetan::default", "Installs the vsftpd application server."
 recipe  "chetan::do_stop", "Stops service."
 
-attribute "package",
+attribute "chetan",
   :display_name => "Import/export settings for database dump file management.",
   :type => "hash"
 
-attribute "package/ftp",
+attribute "chetan/package",
   :display_name => "package name",
   :description => "package name to install",
   :required => "required",
