@@ -7,4 +7,4 @@
 
 # Set a default provider for app to connect with lb cookbook attach/detach
 # for application servers without their own provider.
-set_unless[:chetan][:provider] = nil 
+set_unless[:chetan][:provider] = "vsftpd" 

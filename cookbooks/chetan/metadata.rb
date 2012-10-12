@@ -32,5 +32,4 @@ attribute "chetan/package",
     "SoftLayer_Singapore",
     "SoftLayer_Amsterdam"
   ],
-
   :recipes => [ "chetan::default" ]
