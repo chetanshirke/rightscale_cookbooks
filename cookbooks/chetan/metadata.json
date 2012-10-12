@@ -16,7 +16,14 @@
       "required": "required",
       "calculated": false,
       "choice": [
-
+        "vsftpd",
+        "cloudfiles",
+        "cloudfilesuk",
+        "google",
+        "azure",
+        "SoftLayer_Dallas",
+        "SoftLayer_Singapore",
+        "SoftLayer_Amsterdam"
       ],
       "type": "string",
       "recipes": [

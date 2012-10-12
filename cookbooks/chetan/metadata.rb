@@ -22,4 +22,15 @@ attribute "chetan/package",
   :display_name => "package name",
   :description => "package name to install",
   :required => "required",
+  :choice => [
+    "vsftpd",
+    "cloudfiles",
+    "cloudfilesuk",
+    "google",
+    "azure",
+    "SoftLayer_Dallas",
+    "SoftLayer_Singapore",
+    "SoftLayer_Amsterdam"
+  ],
+
   :recipes => [ "chetan::default" ]
