@@ -7,7 +7,7 @@
 
 rightscale_marker :begin
 
-package "provider" do
+package "vsftpd" do
   action :install
 end
 
