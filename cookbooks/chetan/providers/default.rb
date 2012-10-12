@@ -11,7 +11,7 @@
 action :stop do
   log "  Running stop sequence"
   service "vsftpd" do
-    action :start
+    action :stop
     persist false
   end
 end
