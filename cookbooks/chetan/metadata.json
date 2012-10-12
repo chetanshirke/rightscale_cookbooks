@@ -7,6 +7,9 @@
   },
   "version": "13.2.0",
   "dependencies": {
+    "rightscale": [
+
+    ]
   },
   "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
   "providing": {
