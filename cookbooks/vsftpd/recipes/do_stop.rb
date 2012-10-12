@@ -7,7 +7,7 @@
 
 rightscale_marker :begin
 
-chetan "vsftpd" do
+vsftpd "vsftpd" do
   action :stop
 end
 

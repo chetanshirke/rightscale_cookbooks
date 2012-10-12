@@ -11,7 +11,7 @@ package "vsftpd" do
   action :install
 end
 
-chetan "vsftpd" do
+vsftpd "vsftpd" do
   action :start
 end
 
