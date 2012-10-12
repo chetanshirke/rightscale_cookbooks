@@ -12,3 +12,4 @@ version          "13.2.0"
 depends "rightscale"
 
 recipe  "chetan::default", "Installs the vsftpd application server."
+recipe  "chetan::do_stop", "Stops service."

@@ -15,7 +15,8 @@
   "providing": {
   },
   "recipes": {
-    "chetan::default": "Installs the vsftpd application server."
+    "chetan::default": "Installs the vsftpd application server.",
+    "chetan::do_stop": "Stops service."
   },
   "platforms": {
   },
