@@ -5,6 +5,14 @@
 # RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
 # if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
-# Set a default provider for app to connect with lb cookbook attach/detach
-# for application servers without their own provider.
-set_unless[:chetan][:package] = "vsftpd" 
+rightscale_marker :begin
+
+package "vsftpd" do
+  action :install
+end
+
+chetan "vsftpd" do
+  action :start
+end
+
+rightscale_marker :end
