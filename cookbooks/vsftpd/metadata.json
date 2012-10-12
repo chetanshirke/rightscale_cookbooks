@@ -1,6 +1,6 @@
 {
   "attributes": {
-    "chetan": {
+    "vsftpd": {
       "required": "optional",
       "calculated": false,
       "choice": [
@@ -12,25 +12,20 @@
       ],
       "display_name": "Import/export settings for database dump file management."
     },
-    "chetan/package": {
+    "vsftpd/port": {
       "required": "required",
       "calculated": false,
       "choice": [
-        "vsftpd",
-        "cloudfiles",
-        "cloudfilesuk",
-        "google",
-        "azure",
-        "SoftLayer_Dallas",
-        "SoftLayer_Singapore",
-        "SoftLayer_Amsterdam"
+        "21",
+        "23",
+        "24"
       ],
       "type": "string",
       "recipes": [
-        "chetan::default"
+        "vsftpd::default"
       ],
-      "description": "package name to install",
-      "display_name": "package name"
+      "description": "Please provide port number",
+      "display_name": "port number"
     }
   },
   "suggestions": {
@@ -47,8 +42,8 @@
   "providing": {
   },
   "recipes": {
-    "chetan::default": "Installs the vsftpd application server.",
-    "chetan::do_stop": "Stops service."
+    "vsftpd::do_stop": "Stops service.",
+    "vsftpd::default": "Installs the vsftpd application server."
   },
   "platforms": {
   },
@@ -58,7 +53,7 @@
   "license": "Copyright RightScale, Inc. All rights reserved.",
   "description": "Installs /home directory",
   "maintainer_email": "support@rightscale.com",
-  "name": "chetan",
+  "name": "vsftpd",
   "groupings": {
   },
   "recommendations": {
