@@ -13,3 +13,13 @@ depends "rightscale"
 
 recipe  "chetan::default", "Installs the vsftpd application server."
 recipe  "chetan::do_stop", "Stops service."
+
+attribute "vsftpd",
+  :display_name => "General vsftpd Options",
+  :type => "hash"
+
+attribute "package name",
+  :display_name => "package name",
+  :description => "package name to install",
+  :required => "required",
+  :recipes => [ "chetan::default" ]

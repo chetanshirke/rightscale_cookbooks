@@ -1,5 +1,30 @@
 {
   "attributes": {
+    "vsftpd": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "hash",
+      "recipes": [
+
+      ],
+      "display_name": "General vsftpd Options"
+    },
+    "package name": {
+      "required": "required",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string",
+      "recipes": [
+        "chetan::default"
+      ],
+      "description": "package name to install",
+      "display_name": "package name"
+    }
   },
   "suggestions": {
   },
