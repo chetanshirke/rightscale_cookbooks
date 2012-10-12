@@ -12,3 +12,15 @@ actions :install
   # Set of packages to be installed in addition to the base application packages.
   attribute :packages, :kind_of => Array
 
+# Runs application server start sequence
+actions :start
+
+# Runs application server stop sequence
+actions :stop
+
+# Runs application server restart sequence
+actions :restart
+
+# Runs application server reload sequence
+actions :reload
+
