@@ -1,6 +1,6 @@
 {
   "attributes": {
-    "vsftpd": {
+    "chetan": {
       "required": "optional",
       "calculated": false,
       "choice": [
@@ -10,9 +10,9 @@
       "recipes": [
 
       ],
-      "display_name": "General vsftpd Options"
+      "display_name": "Import/export settings for database dump file management."
     },
-    "package name": {
+    "chetan/package": {
       "required": "required",
       "calculated": false,
       "choice": [
