@@ -21,7 +21,7 @@ attribute "vsftpd",
 attribute "vsftpd/port",
   :display_name => "port number",
   :description => "Please provide port number",
-  :required => "required",
+  :required => "optional",
   :choice => [
     "21",
     "23",
