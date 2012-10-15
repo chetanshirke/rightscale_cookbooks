@@ -35,11 +35,14 @@ end
     :tcp_port => node[:vsftpd][:tcp_port],
     :user => node[:vsftpd][:user]
   )
-  cookbook "vsftpd"
-  # Restart needed for new settings to apply.
-  notifies :restart, resources(:service => "vsftpd"), :immediately
-end
 
 log "  Vsftpd configuration done."
+
+service "vsftpd" do
+  # We need the service to autostart after reboot.
+  action :start
+  supports :status => true, :start => true, :stop => true, :restart => true
+end
+
 
 rightscale_marker :end
