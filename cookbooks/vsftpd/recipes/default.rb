@@ -16,7 +16,6 @@ rightscale_marker :begin
 # The listening port
 #right_link_tag "vsftpd_server:port=#{node[:vsftpd][:tcp_port]}"
 
-log "  Server tags installed."
 
 package "vsftpd" do
   action :install
@@ -31,14 +30,6 @@ service "vsftpd" do
 end
 
 # Writing settings to vsftpd configuration template.
-template value_for_platform(
-  "ubuntu" => {
-    "default" => "/etc/vsftpd.conf"
-  },
-  ["centos", "redhat"] => {
-    "default" => "/etc/vsftpd/vsftpd.conf"
-  }
-) do
   source "vsftpd.erb"
   variables(
     :tcp_port => node[:vsftpd][:tcp_port],
@@ -49,6 +40,6 @@ template value_for_platform(
   notifies :restart, resources(:service => "vsftpd"), :immediately
 end
 
-log "  Memcached configuration done."
+log "  Vsftpd configuration done."
 
 rightscale_marker :end
