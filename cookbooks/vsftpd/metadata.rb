@@ -26,7 +26,7 @@ attribute "vsftpd/tcp_port",
   :recipes => ["vsftpd::default"]
 
 attribute "vsftpd/user",
-  :display_name => "Memcached user",
+  :display_name => "Vsftpd user",
   :description => "The user for executing vsftpd. Default: anonymous",
   :required => "required",
   :default => "anonymous",
