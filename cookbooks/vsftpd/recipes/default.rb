@@ -8,13 +8,13 @@
 rightscale_marker :begin
 
 # The instance is identified as a vsftpd server.
-right_link_tag "vsftpd_server:active=true"
+#right_link_tag "vsftpd_server:active=true"
 # The server name so that sorts can be done to get the correct order across app servers.
-right_link_tag "vsftpd_server:uuid=#{node[:rightscale][:instance_uuid]}"
+#right_link_tag "vsftpd_server:uuid=#{node[:rightscale][:instance_uuid]}"
 # The instance is associated with a cluster
-right_link_tag "vsftpd_server:cluster=#{node[:vsftpd][:cluster_id]}"
+#right_link_tag "vsftpd_server:cluster=#{node[:vsftpd][:cluster_id]}"
 # The listening port
-right_link_tag "vsftpd_server:port=#{node[:vsftpd][:tcp_port]}"
+#right_link_tag "vsftpd_server:port=#{node[:vsftpd][:tcp_port]}"
 
 log "  Server tags installed."
 
