@@ -13,7 +13,7 @@
       "display_name": "Import/export settings for database dump file management."
     },
     "vsftpd/port": {
-      "required": "required",
+      "required": "optional",
       "calculated": false,
       "choice": [
         "21",
