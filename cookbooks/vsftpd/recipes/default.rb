@@ -7,12 +7,48 @@
 
 rightscale_marker :begin
 
+# The instance is identified as a vsftpd server.
+right_link_tag "vsftpd_server:active=true"
+# The server name so that sorts can be done to get the correct order across app servers.
+right_link_tag "vsftpd_server:uuid=#{node[:rightscale][:instance_uuid]}"
+# The instance is associated with a cluster
+right_link_tag "vsftpd_server:cluster=#{node[:vsftpd][:cluster_id]}"
+# The listening port
+right_link_tag "vsftpd_server:port=#{node[:vsftpd][:tcp_port]}"
+
+log "  Server tags installed."
+
 package "vsftpd" do
   action :install
 end
 
-vsftpd "vsftpd" do
-  action :start
+# Initializing supported commands for vsftpd services for further usage.
+service "vsftpd" do
+  # We need the service to autostart after reboot.
+  action :enable
+  persist true
+  supports :status => true, :start => true, :stop => true, :restart => true
 end
+
+# Writing settings to vsftpd configuration template.
+template value_for_platform(
+  "ubuntu" => {
+    "default" => "/etc/vsftpd/vsftpd.conf"
+  },
+  ["centos", "redhat"] => {
+    "default" => "/etc/vsftpd/vsftpd.conf"
+  }
+) do
+  source "vsftpd.erb"
+  variables(
+    :tcp_port => node[:vsftpd][:tcp_port],
+    :user => node[:vsftpd][:user],
+  )
+  cookbook "vsftpd"
+  # Restart needed for new settings to apply.
+  notifies :restart, resources(:service => "vsftpd"), :immediately
+end
+
+log "  Memcached configuration done."
 
 rightscale_marker :end

@@ -1,7 +1,7 @@
 {
   "attributes": {
     "vsftpd/tcp_port": {
-      "required": "recommended",
+      "required": "required",
       "calculated": false,
       "choice": [
 
@@ -15,7 +15,7 @@
       "display_name": "Vsftpd TCP Port"
     },
     "vsftpd/user": {
-      "required": "recommended",
+      "required": "required",
       "calculated": false,
       "choice": [
 

@@ -21,13 +21,13 @@ attribute "vsftpd",
 attribute "vsftpd/tcp_port",
   :display_name => "Vsftpd TCP Port",
   :description => "The TCP port to use for connections. Default : 21",
-  :required => "recommended",
+  :required => "required",
   :default => "21",
   :recipes => ["vsftpd::default"]
 
 attribute "vsftpd/user",
   :display_name => "Memcached user",
   :description => "The user for executing vsftpd. Default: anonymous",
-  :required => "recommended",
+  :required => "required",
   :default => "anonymous",
   :recipes => ["vsftpd::default"]
