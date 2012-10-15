@@ -7,4 +7,5 @@
 
 # Set a default provider for app to connect with lb cookbook attach/detach
 # for application servers without their own provider.
-set_unless[:vsftpd][:port] = "21" 
+set_unless[:vsftpd][:tcp_port] = "21"
+set_unless[:vsftpd][:user] = "anonymous"

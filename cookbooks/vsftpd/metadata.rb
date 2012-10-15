@@ -18,13 +18,16 @@ attribute "vsftpd",
   :display_name => "Import/export settings for database dump file management.",
   :type => "hash"
 
-attribute "vsftpd/port",
-  :display_name => "port number",
-  :description => "Please provide port number",
-  :required => "optional",
-  :choice => [
-    "21",
-    "23",
-    "24"
-  ],
-  :recipes => [ "vsftpd::default" ]
+attribute "vsftpd/tcp_port",
+  :display_name => "Vsftpd TCP Port",
+  :description => "The TCP port to use for connections. Default : 21",
+  :required => "recommended",
+  :default => "21",
+  :recipes => ["vsftpd::default"]
+
+attribute "vsftpd/user",
+  :display_name => "Memcached user",
+  :description => "The user for executing vsftpd. Default: anonymous",
+  :required => "recommended",
+  :default => "anonymous",
+  :recipes => ["vsftpd::default"]
