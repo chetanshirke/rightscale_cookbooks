@@ -33,7 +33,7 @@ end
 # Writing settings to vsftpd configuration template.
 template value_for_platform(
   "ubuntu" => {
-    "default" => "/etc/vsftpd/vsftpd.conf"
+    "default" => "/etc/vsftpd.conf"
   },
   ["centos", "redhat"] => {
     "default" => "/etc/vsftpd/vsftpd.conf"
@@ -42,7 +42,7 @@ template value_for_platform(
   source "vsftpd.erb"
   variables(
     :tcp_port => node[:vsftpd][:tcp_port],
-    :user => node[:vsftpd][:user],
+    :user => node[:vsftpd][:user]
   )
   cookbook "vsftpd"
   # Restart needed for new settings to apply.
