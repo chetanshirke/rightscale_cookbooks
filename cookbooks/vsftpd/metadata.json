@@ -1,5 +1,33 @@
 {
   "attributes": {
+    "vsftpd/tcp_port": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "21",
+      "type": "string",
+      "recipes": [
+        "vsftpd::default"
+      ],
+      "description": "The TCP port to use for connections. Default : 21",
+      "display_name": "Vsftpd TCP Port"
+    },
+    "vsftpd/user": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "anonymous",
+      "type": "string",
+      "recipes": [
+        "vsftpd::default"
+      ],
+      "description": "The user for executing vsftpd. Default: anonymous",
+      "display_name": "Memcached user"
+    },
     "vsftpd": {
       "required": "optional",
       "calculated": false,
@@ -11,21 +39,6 @@
 
       ],
       "display_name": "Import/export settings for database dump file management."
-    },
-    "vsftpd/port": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-        "21",
-        "23",
-        "24"
-      ],
-      "type": "string",
-      "recipes": [
-        "vsftpd::default"
-      ],
-      "description": "Please provide port number",
-      "display_name": "port number"
     }
   },
   "suggestions": {
