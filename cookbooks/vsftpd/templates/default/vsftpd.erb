@@ -15,8 +15,8 @@ dirmessage_enable=YES
 xferlog_enable=YES
 connect_from_port_20=YES
 xferlog_std_format=YES
-listen=<%=@interface%>:<%=@tcp_port%>
-
+listen=YES
 pam_service_name=vsftpd
 userlist_enable=YES
 tcp_wrappers=YES
+listen_port=<%=@interface%>:<%=@tcp_port%>
