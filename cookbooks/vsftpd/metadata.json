@@ -4,14 +4,16 @@
       "required": "recommended",
       "calculated": false,
       "choice": [
-
+        "localhost",
+        "private",
+        "any"
       ],
       "default": "any",
       "type": "string",
       "recipes": [
         "vsftpd::default"
       ],
-      "description": "Interface used for memcached connections. Default: any",
+      "description": "Interface used for vsftpd connections. Default: any",
       "display_name": "Vsftpd listening interface"
     },
     "vsftpd/anonymous": {

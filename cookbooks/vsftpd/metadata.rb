@@ -35,7 +35,8 @@ attribute "vsftpd/anonymous",
 
 attribute "vsftpd/interface",
   :display_name => "Vsftpd listening interface",
-  :description => "Interface used for memcached connections. Default: any",
+  :description => "Interface used for vsftpd connections. Default: any",
   :required => "recommended",
+  :choice => [ "localhost", "private", "any" ],
   :default => "any",
   :recipes => ["vsftpd::default"]
