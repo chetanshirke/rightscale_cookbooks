@@ -46,6 +46,7 @@ template "/etc/vsftpd/vsftpd.conf" do
   cookbook "vsftpd"
   variables(
     :tcp_port => node[:vsftpd][:tcp_port],
+    :interface => node[:memcached][:interface],
     :user => node[:vsftpd][:user]
   )
 end
