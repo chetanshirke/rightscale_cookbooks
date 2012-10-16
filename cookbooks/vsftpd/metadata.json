@@ -1,11 +1,12 @@
 {
   "attributes": {
     "vsftpd/interface": {
-      "required": "required",
+      "required": "recommended",
       "calculated": false,
       "choice": [
 
       ],
+      "default": "any",
       "type": "string",
       "recipes": [
         "vsftpd::default"
@@ -28,12 +29,13 @@
       "display_name": "Vsftpd TCP Port"
     },
     "vsftpd/user": {
-      "required": "required",
+      "required": "recommended",
       "calculated": false,
       "choice": [
         "YES",
         "NO"
       ],
+      "default": "YES",
       "type": "string",
       "recipes": [
         "vsftpd::default"

@@ -28,12 +28,14 @@ attribute "vsftpd/tcp_port",
 attribute "vsftpd/user",
   :display_name => "Vsftpd user",
   :description => "The user for executing vsftpd. Default: YES",
-  :required => "required",
+  :required => "recommended",
   :choice => [ "YES", "NO" ],
+  :default => "YES",
   :recipes => ["vsftpd::default"]
 
 attribute "vsftpd/interface",
   :display_name => "Vsftpd listening interface",
   :description => "Interface used for memcached connections. Default: any",
-  :required => "required",
+  :required => "recommended",
+  :default => "any",
   :recipes => ["vsftpd::default"]
