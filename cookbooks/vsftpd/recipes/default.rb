@@ -28,9 +28,10 @@ service "vsftpd" do
   persist true
   supports :status => true, :start => true, :stop => true, :restart => true
 end
-
+ template "/etc/vsftpd/vsftpd.conf" do
 # Writing settings to vsftpd configuration template.
   source "vsftpd.erb"
+  cookbook "vsftpd"
   variables(
     :tcp_port => node[:vsftpd][:tcp_port],
     :user => node[:vsftpd][:user]
@@ -41,7 +42,6 @@ log "  Vsftpd configuration done."
 service "vsftpd" do
   # We need the service to autostart after reboot.
   action :start
-  supports :status => true, :start => true, :stop => true, :restart => true
 end
 
 

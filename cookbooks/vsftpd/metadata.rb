@@ -31,3 +31,11 @@ attribute "vsftpd/user",
   :required => "recommended",
   :default => "anonymous",
   :recipes => ["vsftpd::default"]
+
+attribute "vsftpd/interface",
+  :display_name => "Vsftpd listening interface",
+  :description => "Interface used for memcached connections. Default: any",
+  :required => "recommended",
+  :choice => ["localhost", "private", "any"],
+  :default => "any",
+  :recipes => ["vsftpd::default"]
