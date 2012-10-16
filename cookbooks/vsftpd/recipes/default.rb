@@ -29,6 +29,17 @@ service "vsftpd" do
   supports :status => true, :start => true, :stop => true, :restart => true
 end
 
+case node[:vsftpd][:interface]
+when "localhost"
+  # Note: not using "localhost" because value also goes into collectd plugin which doesn't understand it.
+  node[:vsftpd][:interface] = "127.0.0.1"
+when "private"
+  # When binding to private on aws you also listen to public because of amazons traffic forwarding.
+  node[:vsftpd][:interface] = node[:cloud][:private_ips][0]
+when "any"
+  node[:vsftpd][:interface] = "0.0.0.0"
+end
+
 template "/etc/vsftpd/vsftpd.conf" do
 # Writing settings to vsftpd configuration template.
   source "vsftpd.erb"

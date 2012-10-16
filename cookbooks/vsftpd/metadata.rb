@@ -29,6 +29,7 @@ attribute "vsftpd/user",
   :display_name => "Vsftpd user",
   :description => "The user for executing vsftpd. Default: YES",
   :required => "recommended",
+  :choice => [ "YES", "NO" ],
   :default => "YES",
   :recipes => ["vsftpd::default"]
 

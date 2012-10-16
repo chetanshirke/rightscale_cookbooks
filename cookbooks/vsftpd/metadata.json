@@ -34,7 +34,8 @@
       "required": "recommended",
       "calculated": false,
       "choice": [
-
+        "YES",
+        "NO"
       ],
       "default": "YES",
       "type": "string",
