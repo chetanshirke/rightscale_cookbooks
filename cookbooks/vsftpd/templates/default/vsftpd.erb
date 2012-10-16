@@ -10,3 +10,17 @@ PORT="<%=@tcp_port%>"
 
 #  -u <username> assume identity of <username>
 USER="<%=@user%>"
+
+anonymous_enable=YES
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+listen=<%=@interface%>:<%=@tcp_port%>
+
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES

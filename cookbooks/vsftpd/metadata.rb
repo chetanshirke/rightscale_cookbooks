@@ -27,9 +27,9 @@ attribute "vsftpd/tcp_port",
 
 attribute "vsftpd/user",
   :display_name => "Vsftpd user",
-  :description => "The user for executing vsftpd. Default: anonymous",
+  :description => "The user for executing vsftpd. Default: YES",
   :required => "recommended",
-  :default => "anonymous",
+  :default => "YES",
   :recipes => ["vsftpd::default"]
 
 attribute "vsftpd/interface",

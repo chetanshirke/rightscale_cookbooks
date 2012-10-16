@@ -36,12 +36,12 @@
       "choice": [
 
       ],
-      "default": "anonymous",
+      "default": "YES",
       "type": "string",
       "recipes": [
         "vsftpd::default"
       ],
-      "description": "The user for executing vsftpd. Default: anonymous",
+      "description": "The user for executing vsftpd. Default: YES",
       "display_name": "Vsftpd user"
     },
     "vsftpd": {

@@ -42,9 +42,7 @@ end
 log "  Vsftpd configuration done."
 
 service "vsftpd" do
-  # We need the service to autostart after reboot.
   action :start
 end
-
 
 rightscale_marker :end
