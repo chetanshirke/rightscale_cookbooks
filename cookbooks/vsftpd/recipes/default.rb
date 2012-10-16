@@ -28,7 +28,8 @@ service "vsftpd" do
   persist true
   supports :status => true, :start => true, :stop => true, :restart => true
 end
- template "/etc/vsftpd/vsftpd.conf" do
+
+template "/etc/vsftpd/vsftpd.conf" do
 # Writing settings to vsftpd configuration template.
   source "vsftpd.erb"
   cookbook "vsftpd"
@@ -36,6 +37,7 @@ end
     :tcp_port => node[:vsftpd][:tcp_port],
     :user => node[:vsftpd][:user]
   )
+end
 
 log "  Vsftpd configuration done."
 
