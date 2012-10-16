@@ -6,7 +6,6 @@
       "choice": [
 
       ],
-      "default": "any",
       "type": "string",
       "recipes": [
         "vsftpd::default"

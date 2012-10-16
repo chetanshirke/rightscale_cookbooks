@@ -36,5 +36,4 @@ attribute "vsftpd/interface",
   :display_name => "Vsftpd listening interface",
   :description => "Interface used for memcached connections. Default: any",
   :required => "required",
-  :default => "any",
   :recipes => ["vsftpd::default"]
