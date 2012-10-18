@@ -18,3 +18,4 @@ action :install do
   /bin/mv mediawiki-1.19.2 /var/www/mediawiki
     EOH
   end
+end
