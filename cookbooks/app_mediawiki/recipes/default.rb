@@ -7,7 +7,7 @@
 
 rightscale_marker :begin
 
-package "mediawiki" do
+package "app_mediawiki" do
   action :install
 end
 
