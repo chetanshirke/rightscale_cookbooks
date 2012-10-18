@@ -22,6 +22,17 @@ bash "install_program" do
   action :nothing
 end
 
+case node[:app_mediawiki][:interface]
+when "localhost"
+  # Note: not using "localhost" because value also goes into collectd plugin which doesn't understand it.
+  node[:app_mediawiki][:interface] = "127.0.0.1"
+when "private"
+  # When binding to private on aws you also listen to public because of amazons traffic forwarding.
+  node[:app_mediawiki][:interface] = node[:cloud][:private_ips][0]
+when "any"
+  node[:app_mediawiki][:interface] = "0.0.0.0"
+end
+
 template "/var/www/mediawiki/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
