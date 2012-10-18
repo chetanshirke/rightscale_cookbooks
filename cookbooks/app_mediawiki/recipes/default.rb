@@ -17,7 +17,7 @@ bash "install_program" do
   cwd "/tmp"
   code <<-EOH
     tar -zxf mediawiki-1.19.2.tar.gz
-    mv mediawiki-1.19.2.tar.gz /var/www/mediawiki
+    (mv mediawiki-1.19.2.tar.gz /var/www/mediawiki)
   EOH
   action :nothing
 end
