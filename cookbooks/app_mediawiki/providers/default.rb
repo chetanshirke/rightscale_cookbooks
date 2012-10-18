@@ -8,9 +8,13 @@
 # = Default application server provider
 #
 
+
 action :install do
-  # Installing required packages
+  bash "install mediawiki" do
+    flags "-ex"
+    code <<-EOH
   /usr/bin/wget http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz -O /tmp/
   /bin/tar -zxf /tmp/mediawiki-1.19.2.tar.gz
   /mv mediawiki-1.19.2 /var/www/mediawiki
-end
+    EOH
+  end
