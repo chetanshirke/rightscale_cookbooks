@@ -1,20 +1,6 @@
 {
   "attributes": {
-    "app_mediawiki/admin_user": {
-      "required": "recommended",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "admin",
-      "type": "string",
-      "recipes": [
-        "mediawiki::default"
-      ],
-      "description": "Mediawiki admin user account",
-      "display_name": "Mediawiki admin user account"
-    },
-    "app_mediawiki/admin_email": {
+    "app_app_mediawiki/admin_email": {
       "required": "recommended",
       "calculated": false,
       "choice": [
@@ -23,28 +9,40 @@
       "default": "root@localhost",
       "type": "string",
       "recipes": [
-        "mediawiki::default"
+        "app_mediawiki::default"
       ],
       "description": "Mediawiki admin email account",
       "display_name": "Mediawiki admin email account"
     },
-    "app_mediawiki/interface": {
+    "app_app_mediawiki/app_name": {
       "required": "recommended",
       "calculated": false,
       "choice": [
-        "localhost",
-        "private",
-        "any"
+
       ],
-      "default": "any",
+      "default": "defalult",
       "type": "string",
       "recipes": [
-        "mediawiki::default"
+        "app_mediawiki::default"
       ],
-      "description": "Interface used for mediawiki connections. Default: any",
-      "display_name": "Mediawiki listening interface"
+      "description": "Mediawiki application name",
+      "display_name": "Mediawiki application name"
     },
-    "app_mediawiki": {
+    "app_app_mediawiki/admin_pass": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "admin123",
+      "type": "string",
+      "recipes": [
+        "app_mediawiki::default"
+      ],
+      "description": "Mediawiki admin user account password",
+      "display_name": "Mediawiki admin user account password"
+    },
+    "app_app_mediawiki": {
       "required": "optional",
       "calculated": false,
       "choice": [
@@ -56,7 +54,23 @@
       ],
       "display_name": "Mediawiki application local settings"
     },
-    "app_mediawiki/namespace": {
+    "app_app_mediawiki/interface": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+        "localhost",
+        "private",
+        "any"
+      ],
+      "default": "any",
+      "type": "string",
+      "recipes": [
+        "app_mediawiki::default"
+      ],
+      "description": "Interface used for app_mediawiki connections. Default: any",
+      "display_name": "Mediawiki listening interface"
+    },
+    "app_app_mediawiki/namespace": {
       "required": "recommended",
       "calculated": false,
       "choice": [
@@ -65,38 +79,24 @@
       "default": "default",
       "type": "string",
       "recipes": [
-        "mediawiki::default"
+        "app_mediawiki::default"
       ],
       "description": "Mediawiki Namespace",
       "display_name": "Mediawiki Namespace"
     },
-    "app_mediawiki/app_name": {
+    "app_app_mediawiki/admin_user": {
       "required": "recommended",
       "calculated": false,
       "choice": [
 
       ],
-      "default": "defalult",
+      "default": "admin",
       "type": "string",
       "recipes": [
-        "mediawiki::default"
+        "app_mediawiki::default"
       ],
-      "description": "Mediawiki application name",
-      "display_name": "Mediawiki application name"
-    },
-    "app_mediawiki/admin_pass": {
-      "required": "recommended",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "admin123",
-      "type": "string",
-      "recipes": [
-        "mediawiki::default"
-      ],
-      "description": "Mediawiki admin user account password",
-      "display_name": "Mediawiki admin user account password"
+      "description": "Mediawiki admin user account",
+      "display_name": "Mediawiki admin user account"
     }
   },
   "suggestions": {
@@ -122,7 +122,7 @@
   "providing": {
   },
   "recipes": {
-    "app_mediawiki::default": "Installs the mediawiki application server."
+    "app_app_mediawiki::default": "Installs the mediawiki application server."
   },
   "platforms": {
   },
