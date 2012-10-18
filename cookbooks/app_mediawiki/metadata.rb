@@ -1,7 +1,7 @@
 maintainer       "RightScale, Inc."
 maintainer_email "support@rightscale.com"
 license          "Copyright RightScale, Inc. All rights reserved."
-description      "Installs /home directory"
+description      "Installs Mediawiki application"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "13.2.0"
 
@@ -9,7 +9,10 @@ version          "13.2.0"
 # supports "redhat", "~> 5.8"
 # supports "ubuntu", "~> 10.04", "~> 12.04"
 
+depends "app"
+depends "app_php"
 depends "rightscale"
+depends "web_apache"
 
 recipe  "mediawiki::default", "Installs the mediawiki application server."
 
