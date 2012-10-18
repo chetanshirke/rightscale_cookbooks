@@ -12,7 +12,6 @@ rightscale_marker :begin
     group node[:root][:group]
     action :create
     recursive true
-    not_if "test -d /home/webapp"
   end
 
 remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
