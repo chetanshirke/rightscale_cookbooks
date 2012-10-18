@@ -1,0 +1,42 @@
+{
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "version": "13.2.0",
+  "dependencies": {
+    "app": [
+
+    ],
+    "app_php": [
+
+    ],
+    "web_apache": [
+
+    ],
+    "rightscale": [
+
+    ]
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "providing": {
+  },
+  "recipes": {
+    "mediawiki::default": "Installs the mediawiki application server."
+  },
+  "platforms": {
+  },
+  "maintainer": "RightScale, Inc.",
+  "replacing": {
+  },
+  "license": "Copyright RightScale, Inc. All rights reserved.",
+  "description": "Installs Mediawiki application",
+  "maintainer_email": "support@rightscale.com",
+  "name": "app_mediawiki",
+  "groupings": {
+  },
+  "recommendations": {
+  }
+}
