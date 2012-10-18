@@ -1,5 +1,103 @@
 {
   "attributes": {
+    "app_mediawiki/admin_user": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "admin",
+      "type": "string",
+      "recipes": [
+        "mediawiki::default"
+      ],
+      "description": "Mediawiki admin user account",
+      "display_name": "Mediawiki admin user account"
+    },
+    "app_mediawiki/admin_email": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "root@localhost",
+      "type": "string",
+      "recipes": [
+        "mediawiki::default"
+      ],
+      "description": "Mediawiki admin email account",
+      "display_name": "Mediawiki admin email account"
+    },
+    "app_mediawiki/interface": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+        "localhost",
+        "private",
+        "any"
+      ],
+      "default": "any",
+      "type": "string",
+      "recipes": [
+        "mediawiki::default"
+      ],
+      "description": "Interface used for mediawiki connections. Default: any",
+      "display_name": "Mediawiki listening interface"
+    },
+    "app_mediawiki": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "hash",
+      "recipes": [
+
+      ],
+      "display_name": "Mediawiki application local settings"
+    },
+    "app_mediawiki/namespace": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "default",
+      "type": "string",
+      "recipes": [
+        "mediawiki::default"
+      ],
+      "description": "Mediawiki Namespace",
+      "display_name": "Mediawiki Namespace"
+    },
+    "app_mediawiki/app_name": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "defalult",
+      "type": "string",
+      "recipes": [
+        "mediawiki::default"
+      ],
+      "description": "Mediawiki application name",
+      "display_name": "Mediawiki application name"
+    },
+    "app_mediawiki/admin_pass": {
+      "required": "recommended",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "admin123",
+      "type": "string",
+      "recipes": [
+        "mediawiki::default"
+      ],
+      "description": "Mediawiki admin user account password",
+      "display_name": "Mediawiki admin user account password"
+    }
   },
   "suggestions": {
   },

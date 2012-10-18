@@ -22,5 +22,18 @@ bash "install_program" do
   action :nothing
 end
 
+template "/var/www/mediawiki/LocalSettings.php" do
+# Writing settings to mediawiki configuration template.
+  source "LocalSettings.erb"
+  cookbook "app_mediawiki"
+  variables(
+    :app_name => node[:app_mediawiki][:app_name],
+    :namespace => node[:app_mediawiki][:namespace],
+    :interface => node[:app_mediawiki][:interface],
+    :admin_user => node[:app_mediawiki][:admin_user],
+    :admin_pass => node[:app_mediawiki][:admin_pass],
+    :admin_email => node[:app_mediawiki][:admin_email]
+  )
+end
 
 rightscale_marker :end
