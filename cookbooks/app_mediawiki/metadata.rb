@@ -14,5 +14,4 @@ depends "app_php"
 depends "rightscale"
 depends "web_apache"
 
-recipe  "mediawiki::default", "Installs the mediawiki application server."
-
+recipe  "app_mediawiki::default", "Installs the mediawiki application server."

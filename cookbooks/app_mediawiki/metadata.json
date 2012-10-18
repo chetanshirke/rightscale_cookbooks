@@ -24,7 +24,7 @@
   "providing": {
   },
   "recipes": {
-    "mediawiki::default": "Installs the mediawiki application server."
+    "app_mediawiki::default": "Installs the mediawiki application server."
   },
   "platforms": {
   },
