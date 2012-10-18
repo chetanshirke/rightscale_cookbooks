@@ -15,6 +15,6 @@ action :install do
     code <<-EOH
   /usr/bin/wget http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz -O /tmp/
   /bin/tar -zxf /tmp/mediawiki-1.19.2.tar.gz
-  /mv mediawiki-1.19.2 /var/www/mediawiki
+  /bin/mv mediawiki-1.19.2 /var/www/mediawiki
     EOH
   end
