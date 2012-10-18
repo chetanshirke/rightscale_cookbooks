@@ -14,28 +14,28 @@ depends "app_php"
 depends "rightscale"
 depends "web_apache"
 
-recipe  "app_app_mediawiki::default", "Installs the mediawiki application server."
+recipe  "app_mediawiki::default", "Installs the mediawiki application server."
 
 
-attribute "app_app_mediawiki",
+attribute "app_mediawiki",
   :display_name => "Mediawiki application local settings",
   :type => "hash"
 
-attribute "app_app_mediawiki/app_name",
+attribute "app_mediawiki/app_name",
   :display_name => "Mediawiki application name",
   :description => "Mediawiki application name",
   :required => "recommended",
   :default => "defalult",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_app_mediawiki/namespace",
+attribute "app_mediawiki/namespace",
   :display_name => "Mediawiki Namespace",
   :description => "Mediawiki Namespace",
   :required => "recommended",
   :default => "default",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_app_mediawiki/interface",
+attribute "app_mediawiki/interface",
   :display_name => "Mediawiki listening interface",
   :description => "Interface used for app_mediawiki connections. Default: any",
   :required => "recommended",
@@ -43,21 +43,21 @@ attribute "app_app_mediawiki/interface",
   :default => "any",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_app_mediawiki/admin_user",
+attribute "app_mediawiki/admin_user",
   :display_name => "Mediawiki admin user account",
   :description => "Mediawiki admin user account",
   :required => "recommended",
   :default => "admin",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_app_mediawiki/admin_pass",
+attribute "app_mediawiki/admin_pass",
   :display_name => "Mediawiki admin user account password",
   :description => "Mediawiki admin user account password",
   :required => "recommended",
   :default => "admin123",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_app_mediawiki/admin_email",
+attribute "app_mediawiki/admin_email",
   :display_name => "Mediawiki admin email account",
   :description => "Mediawiki admin email account",
   :required => "recommended",
