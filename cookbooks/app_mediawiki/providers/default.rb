@@ -10,12 +10,14 @@
 
 
 action :install do
-  bash "install mediawiki" do
-    flags "-ex"
-    code <<-EOH
-  /usr/bin/wget http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz -O /tmp/
+  bash "install_mediawiki" do
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+  /usr/bin/wget http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz 
   /bin/tar -zxf /tmp/mediawiki-1.19.2.tar.gz
   /bin/mv mediawiki-1.19.2 /var/www/mediawiki
     EOH
+  action :nothing
   end
 end
