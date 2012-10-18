@@ -7,15 +7,20 @@
 
 rightscale_marker :begin
 
-  bash "install_mediawiki" do
+remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
+  source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
+  notifies :run, "bash[install_program]", :immediately
+end
+
+bash "install_program" do
   user "root"
   cwd "/tmp"
   code <<-EOH
-  /usr/bin/wget http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz -O /tmp/mediawiki-1.19.2.tar.gz
-  /bin/tar -zxf /tmp/mediawiki-1.19.2.tar.gz
-  /bin/mv mediawiki-1.19.2 /var/www/mediawiki
-    EOH
+    tar -zxf mediawiki-1.19.2.tar.gz
+    mv mediawiki-1.19.2.tar.gz /var/www/mediawiki
+  EOH
   action :nothing
-  end
+end
+
 
 rightscale_marker :end
