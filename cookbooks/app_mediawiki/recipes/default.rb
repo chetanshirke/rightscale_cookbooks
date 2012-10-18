@@ -7,6 +7,14 @@
 
 rightscale_marker :begin
 
+  directory "/home/webapp" do
+    owner node[:root][:user]
+    group node[:root][:group]
+    action :create
+    recursive true
+	not_if {Directory.exists?("/home/webapp")}
+  end
+
 remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
   source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
   notifies :run, "bash[install_program]", :immediately
@@ -17,7 +25,7 @@ bash "install_program" do
   cwd "/tmp"
   code <<-EOH
     tar -zxf mediawiki-1.19.2.tar.gz
-    (cp -a  mediawiki-1.19.2 /var/www/mediawiki && rm -rf  mediawiki-1.19.2*)
+    (cp -a  mediawiki-1.19.2 /home/webapp/mediawiki && rm -rf  mediawiki-1.19.2*)
   EOH
   action :nothing
 end
