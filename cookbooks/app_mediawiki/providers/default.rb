@@ -114,37 +114,6 @@ action :setup_db_connection do
   end
 end
 
-# Download/Update application repository
-action :code_update do
-
-  deploy_dir = new_resource.destination
-
-  log "  Starting code update sequence"
-  log "  Current project doc root is set to #{deploy_dir}"
-  log "  Downloading project repo"
-
-  # Downloading app from URL 
-remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
-  source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
-  notifies :run, "bash[install_program]", :immediately
-end
-
-bash "install_program" do
-  user "root"
-  cwd "/tmp"
-  code <<-EOH
-    mkdir /home/webapp
-    tar -zxf mediawiki-1.19.2.tar.gz
-    (cp -a  mediawiki-1.19.2 /home/webapp/mediawiki && rm -rf  mediawiki-1.19.2*)
-  EOH
-  action :nothing
-end
-
-  # Restarting apache
-  action_restart
-
-end
-
 action :setup_monitoring do
 
   log "  Monitoring resource is not implemented in php framework yet. Use apache monitoring instead."
