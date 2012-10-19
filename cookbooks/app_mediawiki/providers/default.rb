@@ -124,7 +124,7 @@ action :code_update do
   log "  Downloading project repo"
 
 remote_file [:app_source] do
-  source [:download_url][:app_source]
+  source #{node[:app_mediawiki][:download_url]/[:app_source]}
   notifies :run, "bash[install_program]", :immediately
 end
 
