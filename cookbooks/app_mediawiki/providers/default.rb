@@ -114,6 +114,39 @@ action :setup_db_connection do
   end
 end
 
+# Download/Update application repository
+action :code_update do
+
+  deploy_dir = new_resource.destination
+
+  log "  Starting code update sequence"
+  log "  Current project doc root is set to #{deploy_dir}"
+  log "  Downloading project repo"
+
+remote_file [:app_source] do
+  source [:download_url][:app_source]
+  notifies :run, "bash[install_program]", :immediately
+end
+
+bash "install_program" do
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+    mkdir /home/webapp
+    tar -zxf [:app_source]
+	file_name {echo [:app_source]|cut -f1 -d"-"}
+    mv "#{file_name}
+  EOH
+  action :nothing
+end
+
+
+  # Restarting apache
+  action_restart
+
+end
+
+
 action :setup_monitoring do
 
   log "  Monitoring resource is not implemented in php framework yet. Use apache monitoring instead."
