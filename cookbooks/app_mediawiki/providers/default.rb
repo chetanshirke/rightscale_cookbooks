@@ -123,14 +123,22 @@ action :code_update do
   log "  Current project doc root is set to #{deploy_dir}"
   log "  Downloading project repo"
 
-  # Calling "repo" LWRP to download remote project repository
-  repo "default" do
-    destination deploy_dir
-    action node[:repo][:default][:perform_action].to_sym
-    app_user node[:app][:user]
-    repository node[:repo][:default][:repository]
-    persist false
-  end
+  # Downloading app from URL 
+remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
+  source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
+  notifies :run, "bash[install_program]", :immediately
+end
+
+bash "install_program" do
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+    mkdir /home/webapp
+    tar -zxf mediawiki-1.19.2.tar.gz
+    (cp -a  mediawiki-1.19.2 /home/webapp/mediawiki && rm -rf  mediawiki-1.19.2*)
+  EOH
+  action :nothing
+end
 
   # Restarting apache
   action_restart
