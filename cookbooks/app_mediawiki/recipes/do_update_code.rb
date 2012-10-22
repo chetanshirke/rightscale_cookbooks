@@ -12,7 +12,7 @@ rightscale_marker :begin
 
 log "  Updating project code repository"
 app "app_mediawiki" do
-  destination node[:app][:destination]
+  destination node[:app_mediawiki][:destination]
   action :code_update
 end
 
