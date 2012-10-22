@@ -123,7 +123,7 @@ action :code_update do
   log "  Current project doc root is set to #{deploy_dir}"
   log "  Downloading project repo"
 
-remote_file [:app_source] do
+remote_file [:app_mediawiki][:download_url] do
   source #{node[:app_mediawiki][:download_url]/[:app_source]}
   notifies :run, "bash[install_program]", :immediately
 end
@@ -132,10 +132,10 @@ bash "install_program" do
   user "root"
   cwd "/tmp"
   code <<-EOH
-    mkdir /home/webapp
-    tar -zxf [:app_source]
-	file_name {echo [:app_source]|cut -f1 -d"-"}
-    mv "#{file_name}
+    app_source="echo "#{app_mediawiki}[:download_url]" | awk -F "/" '{print $(NF-0)}'"
+    tar -zxf "#{app_mediawiki}[:app_source]"
+    file_name="echo "#{app_mediawiki}[:app_source]"|cut -d. -f1,2,3"
+    mv "#{file_name}" "/home/webapp/#{web_apache[:application_name]"
   EOH
   action :nothing
 end

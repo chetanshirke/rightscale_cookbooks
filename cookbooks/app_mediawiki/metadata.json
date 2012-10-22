@@ -81,27 +81,13 @@
       "description": "Mediawiki admin user account password",
       "display_name": "Mediawiki admin user account password"
     },
-    "app_mediawiki/app_source": {
-      "required": "recommended",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "mediawiki-1.19.2.tar.gz",
-      "type": "string",
-      "recipes": [
-        "app_mediawiki::default"
-      ],
-      "description": "Mediawiki applicaion source file name",
-      "display_name": "Mediawiki applicaion source file name"
-    },
     "app_mediawiki/download_url": {
       "required": "recommended",
       "calculated": false,
       "choice": [
 
       ],
-      "default": "http://download.wikimedia.org/mediawiki/1.19",
+      "default": "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz",
       "type": "string",
       "recipes": [
         "app_mediawiki::default"

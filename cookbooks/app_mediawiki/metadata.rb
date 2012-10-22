@@ -60,13 +60,5 @@ attribute "app_mediawiki/download_url",
   :display_name => "Mediawiki download URl",
   :description => "Mediawiki download URl",
   :required => "recommended",
-  :default => "http://download.wikimedia.org/mediawiki/1.19",
+  :default => "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz",
   :recipes => ["app_mediawiki::default"]
-
-attribute "app_mediawiki/app_source",
-  :display_name => "Mediawiki applicaion source file name",
-  :description => "Mediawiki applicaion source file name",
-  :required => "recommended",
-  :default => "mediawiki-1.19.2.tar.gz",
-  :recipes => ["app_mediawiki::default"]
-

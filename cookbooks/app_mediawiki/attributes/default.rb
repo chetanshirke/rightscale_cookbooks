@@ -15,8 +15,7 @@ set_unless[:app_mediawiki][:namespace] = "default"
 set_unless[:app_mediawiki][:admin_user] = "admin"
 set_unless[:app_mediawiki][:admin_pass] = "admin123"
 set_unless[:app_mediawiki][:email_account] = "root@localhost"
-set_unless[:app_mediawiki][:download_url] = "http://download.wikimedia.org/mediawiki/1.19"
-set_unless[:app_mediawiki][:app_source] = "mediawiki-1.19.2.tar.gz"
+set_unless[:app_mediawiki][:download_url] = "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
 
 # Calculated attributes
 # Defining apache user, module dependencies, and database adapter parameters depending on platform.
