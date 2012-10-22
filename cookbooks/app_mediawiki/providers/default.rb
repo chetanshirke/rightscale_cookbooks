@@ -113,39 +113,3 @@ action :setup_db_connection do
     group node[:app][:group]
   end
 end
-
-# Download/Update application repository
-action :code_update do
-
-  deploy_dir = new_resource.destination
-
-  log "  Starting code update sequence"
-  log "  Downloading project repo"
-
-bash "set_ver" do
-  user "root"
-  code <<-EOH
-    app_source="echo "#{app_mediawiki}[:download_url]" | awk -F "/" '{print $(NF-0)}'"
-    file_name="echo "#{app_mediawiki}[:app_source]"|cut -d. -f1,2,3"
-  EOH
-  action :nothing
-end
-
-remote_file "/tmp/#{app_source}" do
-  source #{node[:app_mediawiki][:download_url]}
-  notifies :run, "bash[install_program]", :immediately
-end
-
-bash "install_program" do
-  user "root"
-  cwd "/tmp"
-  code <<-EOH
-    app_source="echo "#{app_mediawiki}[:download_url]" | awk -F "/" '{print $(NF-0)}'"
-    tar -zxf "#{app_mediawiki}[:app_source]"
-    file_name="echo "#{app_mediawiki}[:app_source]"|cut -d. -f1,2,3"
-    mv "#{file_name}" "/home/webapp/#{web_apache}[:application_name]"
-  EOH
-  action :nothing
-end
-
-end
