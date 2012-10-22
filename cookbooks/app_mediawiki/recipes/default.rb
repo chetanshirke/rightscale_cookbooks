@@ -125,7 +125,7 @@ else
 end
 
 # Setting app LWRP attribute
-node[:app][:destination] = "/home/webapp/#{node[:web_apache][:application_name]}"
+node[:app][:destination] = "/home/webapp/mediawiki"
 
 # PHP shares the same doc root with the application destination
 node[:app][:root] = "#{node[:app][:destination]}"
