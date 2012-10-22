@@ -148,8 +148,4 @@ bash "install_program" do
   action :nothing
 end
 
-
-  # Restarting apache
-  action_restart
-
 end
