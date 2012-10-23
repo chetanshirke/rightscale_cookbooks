@@ -1,27 +1,24 @@
 #
 # Cookbook Name:: app_mediawiki
 #
-# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# Copyright RightScale, Inc. All rights reserved. All access and use subject to the
 # RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
 # if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
 
   # Downloading app from URL
-
-package_name = "[:app_mediawiki][:download_url] | awk -F"/" '{print $(NF-0)}'"
-file_name =  "#{package_name} | cut -d. -f1,2,3"
-
-remote_file "/tmp/#{package_name}" ;do
-	source "[:app_mediawiki][:download_url]"
-	notifies :run, "bash[install_program]", :immediately
+remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
+  source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
+  notifies :run, "bash[install_program]", :immediately
 end
 
 bash "install_program" do
   user "root"
   cwd "/tmp"
   code <<-EOH
-  tar -zxf #{package_name}
-  cp -a #{file_name} "#node[:app][:destination]" && rm -rf #{file_name}*
-   EOH
+mkdir /home/webapp
+tar -zxf mediawiki-1.19.2.tar.gz
+(cp -a mediawiki-1.19.2 /home/webapp/mediawiki && rm -rf mediawiki-1.19.2*)
+EOH
   action :nothing
 end
