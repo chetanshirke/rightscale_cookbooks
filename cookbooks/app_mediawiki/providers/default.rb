@@ -1,13 +1,13 @@
 #
 # Cookbook Name:: app_mediawiki
 #
-# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# Copyright RightScale, Inc. All rights reserved. All access and use subject to the
 # RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
 # if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
 # Stop apache
 action :stop do
-  log "  Running stop sequence"
+  log " Running stop sequence"
   service "apache2" do
     action :start
     persist false
@@ -16,7 +16,7 @@ end
 
 # Start apache
 action :start do
-  log "  Running start sequence"
+  log " Running start sequence"
   service "apache2" do
     action :start
     persist false
@@ -25,7 +25,7 @@ end
 
 # Reload apache
 action :reload do
-  log "  Running reload sequence"
+  log " Running reload sequence"
   service "apache2" do
     action :reload
     persist false
@@ -45,7 +45,7 @@ action :install do
   packages = new_resource.packages
  
   if not packages.nil?
-    log "  Packages which will be installed #{packages}"
+    log " Packages which will be installed #{packages}"
 
     packages.each do |p|
       package p
@@ -53,13 +53,13 @@ action :install do
   end
 
   # Installing user-specified additional php modules
-  log "  Modules which will be installed: #{node[:app_mediawiki][:modules_list]}"
+  log " Modules which will be installed: #{node[:app_mediawiki][:modules_list]}"
   node[:app_mediawiki][:modules_list].each do |p|
     package p
   end
 
   # Installing php modules dependencies
-  log "  Module dependencies which will be installed: #{node[:app][:module_dependencies]}"
+  log " Module dependencies which will be installed: #{node[:app][:module_dependencies]}"
   node[:app][:module_dependencies].each do |mod|
     apache_module mod
   end
