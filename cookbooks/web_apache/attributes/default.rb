@@ -45,7 +45,8 @@ set_unless[:web_apache][:ssl_key] = nil
 set_unless[:web_apache][:ssl_passphrase] = nil
 
 # Apache document root
-set[:web_apache][:docroot] = "/home/webapp/#{web_apache[:application_name]}"
+#set[:web_apache][:docroot] = "/home/webapp/#{web_apache[:application_name]}"
+set[:web_apache][:docroot] = "/home/webapp/mediawiki"
 
 # Default servername for web_apache vhost file
 set[:web_apache][:server_name] = "localhost"
