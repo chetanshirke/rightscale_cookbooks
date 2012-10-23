@@ -7,19 +7,20 @@
 
 
   # Downloading app from URL
-remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
-  source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
-  notifies :run, "bash[install_program]", :immediately
+package_name = "echo [:app_mediawiki][:download_url] | awk -F"/" '{print $(NF-0)}'"
+file_name = "echo package_name | cut -d. -f1,2,3"
+
+remote_file "/tmp/#{package_name}" ;do
+	source "[:app_mediawiki][:download_url]"
+	notifies :run, "bash[install_program]", :immediately
 end
 
 bash "install_program" do
   user "root"
   cwd "/tmp"
   code <<-EOH
-    mkdir /home/webapp
-    tar -zxf mediawiki-1.19.2.tar.gz
-    (cp -a  mediawiki-1.19.2 /home/webapp/mediawiki && rm -rf  mediawiki-1.19.2*)
-  EOH
+  tar -zxf #{package_name}
+  cp -a #{file_name} "#node[:app][:destination]" && rm -rf #{file_name}*
+   EOH
   action :nothing
 end
-
