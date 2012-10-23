@@ -7,10 +7,9 @@
 
 
   # Downloading app from URL
-bash "set_ver" ;do
-package_name = `echo [:app_mediawiki][:download_url] | awk -F"/" '{print $(NF-0)}'`
-file_name = `echo $package_name | cut -d. -f1,2,3"`
-end
+
+package_name = "[:app_mediawiki][:download_url] | awk -F"/" '{print $(NF-0)}'"
+file_name =  "#{package_name} | cut -d. -f1,2,3"
 
 remote_file "/tmp/#{package_name}" ;do
 	source "[:app_mediawiki][:download_url]"
