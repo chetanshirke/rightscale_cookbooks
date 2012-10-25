@@ -8,11 +8,11 @@
 
   # Downloading app from URL
 
-package_name = node[:app_mediawiki][:download_url]
-package_name = package_name.split('/')
+pn = node[:app_mediawiki][:download_url]
+package_name = pn.split('/')
 
-file_name = package_name.split('.')
-file_name = "#{file_name[0]}.#{file_name[1]}.#{file_name[2]}"
+fn = package_name.split('.')
+file_name = "#{fn[0]}.#{fn[1]}.#{fn[2]}"
 
 remote_file "#{package_name.last}" do
         source node[:app_mediawiki][:download_url]
