@@ -22,6 +22,8 @@ EOH
   action :nothing
 end
 
+node[:app_mediawiki][:interface] = node[:cloud][:private_ips][0]
+
 template "/home/webapp/mediawiki/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
