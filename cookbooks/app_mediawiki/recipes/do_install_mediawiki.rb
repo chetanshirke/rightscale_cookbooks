@@ -16,9 +16,8 @@ bash "install_program" do
   user "root"
   cwd "/tmp"
   code <<-EOH
-mkdir /home/webapp
 tar -zxf mediawiki-1.19.2.tar.gz
-(cp -a mediawiki-1.19.2 /home/webapp/mediawiki && rm -rf mediawiki-1.19.2*)
+(cp -a mediawiki-1.19.2/* /home/webapp/mediawiki/ && rm -rf mediawiki-1.19.2*)
 EOH
   action :nothing
 end
