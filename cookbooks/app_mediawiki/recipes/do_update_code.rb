@@ -9,7 +9,7 @@
   # Downloading app from URL
 #package_name = "echo [:app_mediawiki][:download_url] | awk -F"/" '{print $(NF-0)}'"
 #file_name = "echo package_name | cut -d. -f1,2,3"
-ex = "[:app_mediawiki][:download_url]"
+ex = "#{node[:app_mediawiki][:download_url]}"
 package_name = ex.split('/')
 file_name = package_name.split('.')
 
