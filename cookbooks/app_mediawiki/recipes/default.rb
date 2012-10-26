@@ -138,7 +138,8 @@ tar -zxf mediawiki-1.19.2.tar.gz
 EOH
   action :nothing
 end
-
+node[:app_mediawiki][:admin_user] = node[:db][:application][:user]
+node[:app_mediawiki][:admin_pass] = node[:db][:application][:password]
 template "/home/webapp/mediawiki/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
@@ -146,9 +147,9 @@ template "/home/webapp/mediawiki/LocalSettings.php" do
   variables(
     :fqdn => node[:app_mediawiki][:fqdn],
     :namespace => node[:app_mediawiki][:namespace],
-    :admin_user => node[:db][:application][:user],
-    :admin_pass => node[:db][:application][:password],
     :admin_email => node[:app_mediawiki][:admin_email],
+    :admin_user => node[:app_mediawiki][:admin_user],
+    :admin_pass => node[:app_mediawiki][:admin_pass],
     :dbname => node[:db][:dump][:database_name]
   )
 end
