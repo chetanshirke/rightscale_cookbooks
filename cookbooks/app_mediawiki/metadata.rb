@@ -10,6 +10,7 @@ version          "13.2.0"
 # supports "ubuntu", "~> 10.04", "~> 12.04"
 
 depends "app"
+depends "db"
 depends "repo"
 depends "rightscale"
 depends "web_apache"

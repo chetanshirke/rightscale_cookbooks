@@ -2,20 +2,20 @@
 if ( !defined( 'MEDIAWIKI' ) ) {
         exit;
 }
-$wgSitename      = "<%=@app_name%>";
+$wgSitename      = "<%=@namespace%>";
 $wgMetaNamespace = "<%=@namespace%>";
 $wgScriptPath       = "";
 $wgScriptExtension  = ".php";
-$wgServer           = "http://<%=@interface%>";
+$wgServer           = "http://<%=@fqdn%>";
 $wgStylePath        = "$wgScriptPath/skins";
 $wgLogo             = "$wgStylePath/common/images/wiki.png";
 $wgEnableEmail      = true;
-$wgEmergencyContact = "apache@<%=@interface%>";
-$wgPasswordSender   = "apache@<%=@interface%>";
+$wgEmergencyContact = "apache@<%=@fqdn%>";
+$wgPasswordSender   = "apache@<%=@fqdn%>";
 $wgEmailAuthentication = true;
 $wgDBtype           = "mysql";
-$wgDBserver         = "localhost";
-$wgDBname           = "my_wiki";
+$wgDBserver         = "<%=@fqdn%>";
+$wgDBname           = "<%=@dbname%>";
 $wgDBuser           = "<%=@admin_user%>";
 $wgDBpassword       = "<%=@admin_pass%>";
 $wgDBprefix         = "";

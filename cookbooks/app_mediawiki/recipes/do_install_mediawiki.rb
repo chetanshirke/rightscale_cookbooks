@@ -29,12 +29,13 @@ template "/home/webapp/mediawiki/LocalSettings.php" do
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
   variables(
-    :app_name => node[:app_mediawiki][:namespace],
     :namespace => node[:app_mediawiki][:namespace],
     :interface => node[:app_mediawiki][:interface],
     :admin_user => node[:app_mediawiki][:admin_user],
     :admin_pass => node[:app_mediawiki][:admin_pass],
     :admin_email => node[:app_mediawiki][:admin_email]
+    :fqdn => node[:db][:dns][:master][:fqdn]
+    :dbname => node[:db][:dump][:database_name]
   )
 end
 
