@@ -27,6 +27,7 @@ template "/home/webapp/mediawiki/LocalSettings.php" do
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
   variables(
+    :app_fqdn => node[:app_mediawiki][:fqdn],
     :namespace => node[:app_mediawiki][:namespace],
     :admin_user => node[:db][:application][:user],
     :admin_pass => node[:db][:application][:password],

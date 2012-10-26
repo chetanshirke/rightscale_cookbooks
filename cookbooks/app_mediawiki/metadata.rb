@@ -50,3 +50,10 @@ attribute "app_mediawiki/download_url",
   :required => "recommended",
   :default => "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz",
   :recipes => ["app_mediawiki::default"]
+
+attribute "app_mediawiki/fqdn",
+  :display_name => "Mediawiki application domain name",
+  :description => "Mediawiki application domain name",
+  :required => "recommended",
+  :default => "localhost",
+  :recipes => ["app_mediawiki::default"]
