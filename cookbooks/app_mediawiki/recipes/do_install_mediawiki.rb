@@ -28,8 +28,8 @@ template "/home/webapp/mediawiki/LocalSettings.php" do
   cookbook "app_mediawiki"
   variables(
     :namespace => node[:app_mediawiki][:namespace],
-    :admin_user => node[:app_mediawiki][:admin_user],
-    :admin_pass => node[:app_mediawiki][:admin_pass],
+    :admin_user => node[:db][:application][:user],
+    :admin_pass => node[:db][:application][:password],
     :admin_email => node[:app_mediawiki][:admin_email],
     :fqdn => node[:db][:dns][:master][:fqdn],
     :dbname => node[:db][:dump][:database_name]

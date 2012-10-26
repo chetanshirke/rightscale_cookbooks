@@ -12,8 +12,6 @@ set_unless[:app_mediawiki][:modules_list] = []
 # By default php uses MySQL as the DB adapter
 set_unless[:app][:db_adapter] = "mysql"
 set_unless[:app_mediawiki][:namespace] = "default"
-set_unless[:app_mediawiki][:admin_user] = "admin"
-set_unless[:app_mediawiki][:admin_pass] = "admin123"
 set_unless[:app_mediawiki][:email_account] = "root@localhost"
 set_unless[:app_mediawiki][:download_url] = "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
 
