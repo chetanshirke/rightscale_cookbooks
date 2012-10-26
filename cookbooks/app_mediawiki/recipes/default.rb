@@ -153,7 +153,7 @@ template "/home/webapp/mediawiki/LocalSettings.php" do
     :admin_email => node[:app_mediawiki][:admin_email],
     :admin_user => node[:app_mediawiki][:admin_user],
     :admin_pass => node[:app_mediawiki][:admin_pass],
-    :dbname => node[:db][:dump][:database_name]
+    :dbname => node[:app_mediawiki][:dbname]
   )
 end
 
