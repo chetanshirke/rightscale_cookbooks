@@ -53,6 +53,6 @@ attribute "app_mediawiki/download_url",
 
 attribute "app_mediawiki/fqdn",
   :display_name => "Mediawiki application domain name",
-  :description => "Mediawiki application domain name",
+  :description => "The fully qualified domain name for the application server.  Example: www.example.com",
   :required => "required",
   :recipes => ["app_mediawiki::default"]

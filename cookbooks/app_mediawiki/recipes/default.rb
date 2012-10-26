@@ -124,10 +124,40 @@ else
   raise "Unrecognized database adapter #{node[:app][:db_adapter]}, exiting"
 end
 
+remote_file "/tmp/mediawiki-1.19.2.tar.gz" do
+  source "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz"
+  notifies :run, "bash[install_program]", :immediately
+end
+
+bash "install_program" do
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+tar -zxf mediawiki-1.19.2.tar.gz
+(cp -a mediawiki-1.19.2/* /home/webapp/mediawiki/ && rm -rf mediawiki-1.19.2*)
+EOH
+  action :nothing
+end
+
+template "/home/webapp/mediawiki/LocalSettings.php" do
+# Writing settings to mediawiki configuration template.
+  source "LocalSettings.erb"
+  cookbook "app_mediawiki"
+  variables(
+    :fqdn => node[:app_mediawiki][:fqdn],
+    :namespace => node[:app_mediawiki][:namespace],
+    :admin_user => node[:db][:application][:user],
+    :admin_pass => node[:db][:application][:password],
+    :admin_email => node[:app_mediawiki][:admin_email],
+    :dbname => node[:db][:dump][:database_name]
+  )
+end
+
 # Setting app LWRP attribute
 node[:app][:destination] = "/home/webapp/mediawiki"
 
 # PHP shares the same doc root with the application destination
 node[:app][:root] = "#{node[:app][:destination]}"
+
 
 rightscale_marker :end
