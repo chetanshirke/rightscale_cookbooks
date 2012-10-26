@@ -37,20 +37,6 @@ attribute "app_mediawiki/namespace",
   :default => "default",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_mediawiki/admin_user",
-  :display_name => "Mediawiki admin user account",
-  :description => "Mediawiki admin user account",
-  :required => "recommended",
-  :default => "admin",
-  :recipes => ["app_mediawiki::default"]
-
-attribute "app_mediawiki/admin_pass",
-  :display_name => "Mediawiki admin user account password",
-  :description => "Mediawiki admin user account password",
-  :required => "recommended",
-  :default => "admin123",
-  :recipes => ["app_mediawiki::default"]
-
 attribute "app_mediawiki/admin_email",
   :display_name => "Mediawiki admin email account",
   :description => "Mediawiki admin email account",

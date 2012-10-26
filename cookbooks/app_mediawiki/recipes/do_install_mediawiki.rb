@@ -22,20 +22,16 @@ EOH
   action :nothing
 end
 
-node[:app_mediawiki][:interface] = node[:cloud][:private_ips][0]
-
 template "/home/webapp/mediawiki/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
   variables(
     :namespace => node[:app_mediawiki][:namespace],
-    :interface => node[:app_mediawiki][:interface],
     :admin_user => node[:app_mediawiki][:admin_user],
     :admin_pass => node[:app_mediawiki][:admin_pass],
-    :admin_email => node[:app_mediawiki][:admin_email]
-    :fqdn => node[:db][:dns][:master][:fqdn]
+    :admin_email => node[:app_mediawiki][:admin_email],
+    :fqdn => node[:db][:dns][:master][:fqdn],
     :dbname => node[:db][:dump][:database_name]
   )
 end
-
