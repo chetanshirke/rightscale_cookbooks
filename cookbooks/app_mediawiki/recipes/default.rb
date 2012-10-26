@@ -140,6 +140,9 @@ EOH
 end
 node[:app_mediawiki][:admin_user] = node[:db][:application][:user]
 node[:app_mediawiki][:admin_pass] = node[:db][:application][:password]
+node[:app_mediawiki][:dbname] = node[:db][:dump][:database_name]
+
+
 template "/home/webapp/mediawiki/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
