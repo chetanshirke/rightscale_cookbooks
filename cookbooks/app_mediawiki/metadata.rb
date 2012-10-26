@@ -55,5 +55,5 @@ attribute "app_mediawiki/fqdn",
   :display_name => "Mediawiki application domain name",
   :description => "Mediawiki application domain name",
   :required => "recommended",
-  :default => "localhost",
+  :default => "",
   :recipes => ["app_mediawiki::default"]
