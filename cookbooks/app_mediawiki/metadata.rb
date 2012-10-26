@@ -54,6 +54,5 @@ attribute "app_mediawiki/download_url",
 attribute "app_mediawiki/fqdn",
   :display_name => "Mediawiki application domain name",
   :description => "Mediawiki application domain name",
-  :required => "recommended",
-  :default => "",
+  :required => "required",
   :recipes => ["app_mediawiki::default"]

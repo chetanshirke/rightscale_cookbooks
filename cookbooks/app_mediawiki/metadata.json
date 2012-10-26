@@ -54,12 +54,11 @@
       "display_name": "PHP module packages"
     },
     "app_mediawiki/fqdn": {
-      "required": "recommended",
+      "required": "required",
       "calculated": false,
       "choice": [
 
       ],
-      "default": "localhost",
       "type": "string",
       "recipes": [
         "app_mediawiki::default"
