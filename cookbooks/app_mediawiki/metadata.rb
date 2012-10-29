@@ -44,8 +44,14 @@ attribute "app_mediawiki/download_url",
   :default => "http://download.wikimedia.org/mediawiki/1.19/mediawiki-1.19.2.tar.gz",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_mediawiki/fqdn",
+attribute "app_mediawiki/dns/app_fqdn",
   :display_name => "Mediawiki application domain name",
   :description => "The fully qualified domain name for the application server.  Example: www.example.com",
+  :required => "required",
+  :recipes => ["app_mediawiki::default"]
+
+attribute "app_mediawiki/dns/db_fqdn",
+  :display_name => "Mediawiki database domain name",
+  :description => "The fully qualified domain name for the database server.  Example: db.example.com",
   :required => "required",
   :recipes => ["app_mediawiki::default"]
