@@ -136,13 +136,12 @@ action :code_update do
   action :nothing
   end
 
-template "/home/webapp/mediawiki/LocalSettings.php" do
+template "#{node[:app][:destination]}/#{package_name.last}/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
   variables(
     :app_fqdn => node[:app_mediawiki][:dns][:app_fqdn],
-    :db_fqdn => node[:app_mediawiki][:dns][:db_fqdn],
     :namespace => node[:app_mediawiki][:namespace],
     :admin_email => node[:app_mediawiki][:admin_email]
   )
