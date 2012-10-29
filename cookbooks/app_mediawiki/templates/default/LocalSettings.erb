@@ -19,9 +19,9 @@ $wgDBtype = "mysql";
 $wgDBtype = "postgresql";
 <% end -%>
 $wgDBserver         = "<%=@db_fqdn%>";
-$wgDBname           = "mediawiki";
-$wgDBuser           = "admin";
-$wgDBpassword       = "admin123";
+$wgDBname           = "<%=node[:db][:dump][:database_name]%>";
+$wgDBuser           = "<%=node[:db][:admin][:user]%>";
+$wgDBpassword       = "<%=node[:db][:admin][:password]%>";
 $wgDBprefix         = "";
 $wgDBTableOptions   = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgDBmysql5 = false;
