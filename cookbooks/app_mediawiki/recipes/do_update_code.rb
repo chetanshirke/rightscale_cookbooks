@@ -12,7 +12,7 @@
   package_name = pn.split('/')
 
   remote_file"#{package_name.last}" do
-        source node[:app_mediawiki][:download_url]
+        source "node[:app_mediawiki][:download_url]"
         notifies :run, "bash[install_program]", :immediately
   end
 
