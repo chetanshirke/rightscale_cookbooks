@@ -30,7 +30,7 @@ template "/home/webapp/mediawiki/LocalSettings.php" do
     :app_fqdn => node[:app_mediawiki][:dns][:app_fqdn],
     :db_fqdn => node[:app_mediawiki][:dns][:db_fqdn],
     :namespace => node[:app_mediawiki][:namespace],
-    :admin_email => node[:app_mediawiki][:admin_email],
+    :admin_email => node[:app_mediawiki][:admin_email]
   )
 end
 
