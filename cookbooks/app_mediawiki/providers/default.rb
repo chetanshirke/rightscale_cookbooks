@@ -135,7 +135,8 @@ action :code_update do
     EOH
   action :nothing
   end
-
+ # Restarting apache service.
+ action_restart
 end
 
 action :setup_monitoring do

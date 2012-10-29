@@ -13,7 +13,11 @@ $wgEnableEmail      = true;
 $wgEmergencyContact = "apache@<%=@app_fqdn%>";
 $wgPasswordSender   = "apache@<%=@app_fqdn%>";
 $wgEmailAuthentication = true;
-$wgDBtype           = "mysql";
+<% if node[:app][:db_adapter] == "mysql" -%>
+$wgDBtype = "mysql";
+<% elsif node[:app][:db_adapter] == "postgres" -%>
+$wgDBtype = "postgresql";
+<% end -%>
 $wgDBserver         = "<%=@db_fqdn%>";
 $wgDBname           = "mediawiki";
 $wgDBuser           = "admin";
