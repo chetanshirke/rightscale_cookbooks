@@ -11,7 +11,7 @@
 pn = node[:app_mediawiki][:download_url]
 package_name = pn.split('/')
 
-fn = package_name.split('.')
+fn = #{package_name}.split('.')
 file_name = "#{fn[0]}.#{fn[1]}.#{fn[2]}"
 
 remote_file "#{package_name.last}" do
