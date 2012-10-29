@@ -116,10 +116,13 @@ end
 
 action :code_update do
 
+  log "  Starting code update sequence"
+  log "  Downloading project from download_url"
+
   pn = node[:app_mediawiki][:download_url]
   package_name = pn.split('/')
-
-  remote_file "#{package_name.last}" do
+ 
+  remote_file"#{package_name.last}" do
         source node[:app_mediawiki][:download_url]
         notifies :run, "bash[install_program]", :immediately
   end
