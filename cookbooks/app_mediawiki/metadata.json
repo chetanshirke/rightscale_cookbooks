@@ -66,7 +66,7 @@
       "display_name": "PHP module packages"
     },
     "app_mediawiki/destination": {
-      "required": "required",
+      "required": "recommended",
       "calculated": false,
       "choice": [
 
