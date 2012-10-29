@@ -71,6 +71,7 @@
       "choice": [
 
       ],
+      "default": "/home/webapps",
       "type": "string",
       "recipes": [
         "app_mediawiki::default"
