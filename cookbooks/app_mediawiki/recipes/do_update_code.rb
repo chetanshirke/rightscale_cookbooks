@@ -11,8 +11,8 @@
 pn = node[:app_mediawiki][:download_url]
 package_name = pn.split('/')
 
-fn = #{package_name}.split('.')
-file_name = "#{fn[0]}.#{fn[1]}.#{fn[2]}"
+#fn = #{package_name}.split('.')
+#file_name = "#{fn[0]}.#{fn[1]}.#{fn[2]}"
 
 remote_file "#{package_name.last}" do
         source node[:app_mediawiki][:download_url]
@@ -24,7 +24,7 @@ bash "install_program" do
   cwd "/tmp"
   code <<-EOH
   tar -zxf #{package_name.last}'
-  cp -a "#{file_name}/*" "node[:app][:destination]"+"/" && rm -rf #{file_name}*
+  cp -a "mediawiki-1.19.2/*" "node[:app][:destination]"+"/" && rm -rf mediawiki-1.19.2/*
    EOH
   action :nothing
 end
