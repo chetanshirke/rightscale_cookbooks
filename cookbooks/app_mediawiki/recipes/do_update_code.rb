@@ -20,7 +20,7 @@ bash "install_program" do
   user "root"
   cwd "/tmp"
   code <<-EOH
-  tar -zxf #{package_name.last} -o "node[:app][:destination]"+"/"
+  tar -zxf #{package_name.last} -C "node[:app][:destination]"
    EOH
   action :nothing
 end
