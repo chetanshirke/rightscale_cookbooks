@@ -113,3 +113,30 @@ action :setup_db_connection do
     group node[:app][:group]
   end
 end
+
+action :code_update do
+
+  pn = node[:app_mediawiki][:download_url]
+  package_name = pn.split('/')
+
+  remote_file "#{package_name.last}" do
+        source node[:app_mediawiki][:download_url]
+        notifies :run, "bash[install_program]", :immediately
+  end
+
+  bash "install_program" do
+    user "root"
+    cwd "/tmp"
+    code <<-EOH
+    tar -zxf #{package_name.last} -C "node[:app][:destination]"
+    EOH
+  action :nothing
+  end
+
+end
+
+action :setup_monitoring do
+
+  log "  Monitoring resource is not implemented in php framework yet. Use apache monitoring instead."
+
+end
