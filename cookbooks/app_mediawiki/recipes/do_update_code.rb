@@ -8,20 +8,20 @@
 
 # Downloading app from URL
 
-pn = node[:app_mediawiki][:download_url]
-package_name = pn.split('/')
+  pn = node[:app_mediawiki][:download_url]
+  package_name = pn.split('/')
 
-remote_file "#{package_name.last}" do
+  remote_file"#{package_name.last}" do
         source node[:app_mediawiki][:download_url]
         notifies :run, "bash[install_program]", :immediately
-end
+  end
 
-bash "install_program" do
-  user "root"
-  cwd "/tmp"
-  code <<-EOH
-  tar -zxf #{package_name.last} -C "node[:app][:destination]"
-   EOH
+  bash "install_program" do
+    user "root"
+    cwd "/tmp"
+    code <<-EOH
+    tar -zxf #{package_name.last} -C "node[:app][:destination]"
+    EOH
   action :nothing
-end
+  end
 
