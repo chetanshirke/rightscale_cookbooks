@@ -70,7 +70,7 @@ end
 # Setup apache PHP virtual host
 action :setup_vhost do
 
-  project_root = "/home/webapp/mediawiki"
+  project_root = new_resource.destination
   php_port = new_resource.port
   
   # Disable default vhost
