@@ -13,11 +13,7 @@ $wgEnableEmail      = true;
 $wgEmergencyContact = "apache@<%=@app_fqdn%>";
 $wgPasswordSender   = "apache@<%=@app_fqdn%>";
 $wgEmailAuthentication = true;
-<% if node[:app][:db_adapter] == "mysql" -%>
-$wgDBtype = "mysql";
-<% elsif node[:app][:db_adapter] == "postgres" -%>
-$wgDBtype = "postgresql";
-<% end -%>
+$wgDBtype 	    = "<%=node[:app][:db_adapter]%>";
 $wgDBserver         = "<%=node[:db][:dns][:master][:fqdn]%>";
 $wgDBname           = "<%=node[:db][:dump][:database_name]%>";
 $wgDBuser           = "<%=node[:db][:admin][:user]%>";
