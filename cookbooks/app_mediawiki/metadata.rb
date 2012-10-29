@@ -37,13 +37,6 @@ attribute "app_mediawiki/namespace",
   :default => "default",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_mediawiki/admin_email",
-  :display_name => "Mediawiki admin email account",
-  :description => "Mediawiki admin email account",
-  :required => "recommended",
-  :default => "root@localhost",
-  :recipes => ["app_mediawiki::default"]
-
 attribute "app_mediawiki/download_url",
   :display_name => "Mediawiki download URl",
   :description => "Mediawiki download URl",
