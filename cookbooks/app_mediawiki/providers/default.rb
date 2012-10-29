@@ -70,7 +70,7 @@ end
 # Setup apache PHP virtual host
 action :setup_vhost do
 
-  project_root = new_resource.destination
+  project_root = node[:app][:destination]
   php_port = new_resource.port
   
   # Disable default vhost
@@ -121,9 +121,9 @@ action :code_update do
 
   pn = node[:app_mediawiki][:download_url]
   package_name = pn.split('/')
- 
-  remote_file"#{package_name.last}" do
-        source node[:app_mediawiki][:download_url]
+
+  remote_file"/tmp/#{package_name.last}" do
+        source "#{node[:app_mediawiki][:download_url]}"
         notifies :run, "bash[install_program]", :immediately
   end
 
@@ -131,10 +131,11 @@ action :code_update do
     user "root"
     cwd "/tmp"
     code <<-EOH
-    tar -zxf #{package_name.last} -C "node[:app][:destination]"
+    tar -zxf #{package_name.last} -C "#{node[:app][:destination]}"
     EOH
   action :nothing
   end
+
  # Restarting apache service.
  action_restart
 end
