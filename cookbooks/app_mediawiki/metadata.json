@@ -13,19 +13,6 @@
       "description": "The fully qualified domain name for the application server.  Example: www.example.com",
       "display_name": "Mediawiki application domain name"
     },
-    "app_mediawiki/dns/db_fqdn": {
-      "required": "required",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "type": "string",
-      "recipes": [
-        "app_mediawiki::default"
-      ],
-      "description": "The fully qualified domain name for the database server.  Example: db.example.com",
-      "display_name": "Mediawiki database domain name"
-    },
     "app_mediawiki": {
       "required": "optional",
       "calculated": false,

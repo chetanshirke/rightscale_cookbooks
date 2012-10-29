@@ -50,12 +50,6 @@ attribute "app_mediawiki/dns/app_fqdn",
   :required => "required",
   :recipes => ["app_mediawiki::default"]
 
-attribute "app_mediawiki/dns/db_fqdn",
-  :display_name => "Mediawiki database domain name",
-  :description => "The fully qualified domain name for the database server.  Example: db.example.com",
-  :required => "required",
-  :recipes => ["app_mediawiki::default"]
-
 attribute "app_mediawiki/destination",
   :display_name => "Mediawiki App root",
   :description => "The destination location where the application code will be placed on the local instance. If you want the application code to be placed in the root directory, use a forward slash (/) otherwise you will need to specify the full path (e.g. /path/to/code). The 'Application Name' input is used to name the destination folder into which the application code will be placed in the specified path. Apache and PHP will look for the application in the specified path. Example: /home/webapps", 

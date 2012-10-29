@@ -18,7 +18,7 @@ $wgDBtype = "mysql";
 <% elsif node[:app][:db_adapter] == "postgres" -%>
 $wgDBtype = "postgresql";
 <% end -%>
-$wgDBserver         = "<%=@db_fqdn%>";
+$wgDBserver         = "<%=node[:db][:dns][:master][:fqdn]%>";
 $wgDBname           = "<%=node[:db][:dump][:database_name]%>";
 $wgDBuser           = "<%=node[:db][:admin][:user]%>";
 $wgDBpassword       = "<%=node[:db][:admin][:password]%>";
