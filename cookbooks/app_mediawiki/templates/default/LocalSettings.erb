@@ -1,8 +1,22 @@
-<?php
+#
+# Cookbook Name:: app_mediawiki
+#
+# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
+# if applicable, other agreements such as a RightScale Master Subscription Agreement.
+#
+# Managed by RightScale
+# DO NOT EDIT BY HAND
+#
+
+#
+# App_mediawiki Localsettings.php configuration.
+
+"<?php
 if ( !defined( 'MEDIAWIKI' ) ) {
         exit;
-}
-$wgSitename      = "<%=@namespace%>";
+}"
+$wgSitename      = "<%=@namespace %>";
 $wgMetaNamespace = "<%=@namespace%>";
 $wgScriptPath       = "";
 $wgScriptExtension  = ".php";
@@ -13,11 +27,11 @@ $wgEnableEmail      = true;
 $wgEmergencyContact = "apache@<%=@app_fqdn%>";
 $wgPasswordSender   = "apache@<%=@app_fqdn%>";
 $wgEmailAuthentication = true;
-$wgDBtype 	    = "<%=node[:app][:db_adapter]%>";
-$wgDBserver         = "<%=node[:db][:dns][:master][:fqdn]%>";
-$wgDBname           = "<%=node[:db][:dump][:database_name]%>";
-$wgDBuser           = "<%=node[:db][:admin][:user]%>";
-$wgDBpassword       = "<%=node[:db][:admin][:password]%>";
+$wgDBtype 	    = "<%= node[:app][:db_adapter] %>";
+$wgDBserver         = "<%= node[:db][:dns][:master][:fqdn] %>";
+$wgDBname           = "<%= node[:db][:dump][:database_name] %>";
+$wgDBuser           = "<%= node[:db][:admin][:user] %>";
+$wgDBpassword       = "<%= node[:db][:admin][:password] %>";
 $wgDBprefix         = "";
 $wgDBTableOptions   = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgDBmysql5 = false;
