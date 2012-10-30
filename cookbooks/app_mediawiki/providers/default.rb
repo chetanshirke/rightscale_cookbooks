@@ -147,7 +147,6 @@ template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
   variables(
     :app_fqdn => node[:app_mediawiki][:dns][:app_fqdn],
     :namespace => node[:app_mediawiki][:namespace],
-    :admin_email => node[:app_mediawiki][:admin_email]
   )
 end
 
