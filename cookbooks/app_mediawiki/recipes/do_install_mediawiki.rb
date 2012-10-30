@@ -7,8 +7,8 @@
 
 
   # Downloading app from URL
-log node[:app][:db_adapter]
-log node[:db][:dns][:master][:fqdn]
-log node[:db][:dump][:database_name]
-log node[:db][:admin][:user]
-log node[:db][:admin][:password]
+log "node[:app][:db_adapter]"
+log "node[:db][:dns][:master][:fqdn]"
+log "node[:db][:dump][:database_name]"
+log "node[:db][:admin][:user]"
+log "node[:db][:admin][:password"
