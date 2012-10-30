@@ -159,5 +159,3 @@ action :setup_monitoring do
   log "  Monitoring resource is not implemented in php framework yet. Use apache monitoring instead."
 
 end
-# Setting app LWRP attribute
-node[:app_mediawiki][:script_path] = "#{local_folder}"

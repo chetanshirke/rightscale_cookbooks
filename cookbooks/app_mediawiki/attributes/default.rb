@@ -14,7 +14,6 @@ set_unless[:app][:db_adapter] = ""
 set_unless[:app_mediawiki][:namespace] = ""
 set_unless[:app_mediawiki][:download_url] = ""
 set_unless[:app_mediawiki][:default][:destination] = ""
-set_unless[:app_mediawiki][:script_path] = ""
 # Calculated attributes
 # Defining apache user, module dependencies, and database adapter parameters depending on platform.
 case platform
