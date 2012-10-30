@@ -136,7 +136,10 @@ action :code_update do
   action :nothing
   end
 
-template "#{node[:app][:destination]}/#{package_name.last}/LocalSettings.php" do
+local_folder=#{package_name.last}.split('.')
+local_folder="#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
+
+template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
