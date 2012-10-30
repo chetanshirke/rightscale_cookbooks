@@ -29,7 +29,7 @@ $wgPasswordSender   = "apache@<%=@app_fqdn%>";
 $wgEmailAuthentication = true;
 $wgDBtype 	    = "<%= node[:app][:db_adapter] %>";
 $wgDBserver         = "<%= node[:db][:dns][:master][:fqdn] %>";
-$wgDBname           = "<%= node[:db][:dump][:database_name] %>";
+$wgDBname           = "<%= node[:app][:database_name] %>";
 $wgDBuser           = "<%= node[:db][:application][:user] %>";
 $wgDBpassword       = "<%= node[:db][:application][:password] %>";
 $wgDBprefix         = "";
