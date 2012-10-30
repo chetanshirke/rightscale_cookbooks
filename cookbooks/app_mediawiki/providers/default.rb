@@ -122,6 +122,9 @@ action :code_update do
   pn = node[:app_mediawiki][:download_url]
   package_name = pn.split('/')
 
+  local_folder = "#{package_name.last}".split('.')
+  local_folder = "#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
+  
   remote_file"/tmp/#{package_name.last}" do
         source "#{node[:app_mediawiki][:download_url]}"
         notifies :run, "bash[install_program]", :immediately
@@ -136,8 +139,6 @@ action :code_update do
   action :nothing
   end
 
-local_folder="#{package_name.last}.split('.')"
-local_folder="#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
 
 template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
