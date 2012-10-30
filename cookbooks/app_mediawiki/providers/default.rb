@@ -120,8 +120,8 @@ action :code_update do
   log "  Downloading project from download_url"
 
   package_name = node[:app_mediawiki][:download_url].split('/').last
-  local_folder = package_name.split('.')[0],['.',1],['.',2]
-  
+  local_folder = "#{package_name}".split('.')[0],['.',1],['.',2]
+ 
   remote_file"/tmp/#{package_name}" do
         source "#{node[:app_mediawiki][:download_url]}"
         notifies :run, "bash[install_program]", :immediately
