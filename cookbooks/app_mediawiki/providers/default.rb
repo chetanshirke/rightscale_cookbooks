@@ -119,10 +119,10 @@ action :code_update do
   log "  Starting code update sequence"
   log "  Downloading project from download_url"
 
-  package_name = node[:app_mediawiki][:download_url].split('/')
-  local_folder = "#{package_name.last}".split('.')[0],['.',1],['.',2]
+  package_name = node[:app_mediawiki][:download_url].split('/').last
+  local_folder = package_name.split('.')[0],['.',1],['.',2]
   
-  remote_file"/tmp/#{package_name.last}" do
+  remote_file"/tmp/#{package_name}" do
         source "#{node[:app_mediawiki][:download_url]}"
         notifies :run, "bash[install_program]", :immediately
   end
@@ -131,7 +131,7 @@ action :code_update do
     user "root"
     cwd "/tmp"
     code <<-EOH
-    tar -zxf #{package_name.last} -C "#{node[:app][:destination]}"
+    tar -zxf #{package_name} -C "#{node[:app][:destination]}"
     EOH
   action :nothing
   end
