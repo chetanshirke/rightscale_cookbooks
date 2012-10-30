@@ -18,7 +18,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 $wgSitename      = "<%=@namespace%>";
 $wgMetaNamespace = "<%=@namespace%>";
-$wgScriptPath       = "/<%= node[:app_mediawiki][:download_url].split('/').last.split('.')[0],['.',1],['.',2] %>";
+$wgScriptPath       = "/mediawiki-1.19.2";
 $wgScriptExtension  = ".php";
 $wgServer           = "http://<%=@app_fqdn%>";
 $wgStylePath        = "$wgScriptPath/skins";

@@ -119,11 +119,8 @@ action :code_update do
   log "  Starting code update sequence"
   log "  Downloading project from download_url"
 
-  pn = node[:app_mediawiki][:download_url]
-  package_name = pn.split('/')
-
-  local_folder = "#{package_name.last}".split('.')
-  local_folder = "#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
+  package_name = node[:app_mediawiki][:download_url].split('/')
+  local_folder = "#{package_name.last}".split('.')[0],['.',1],['.',2]
   
   remote_file"/tmp/#{package_name.last}" do
         source "#{node[:app_mediawiki][:download_url]}"
