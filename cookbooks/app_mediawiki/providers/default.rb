@@ -131,7 +131,6 @@ action :code_update do
   bash "install_program" do
     user "root"
     cwd "/tmp" 
-    mode "0644"
     code <<-EOH
     tar -zxf #{package_name} -C "#{node[:app][:destination]}"
     EOH
@@ -143,6 +142,7 @@ template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
 # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
+  mode "0644"
   variables(
     :app_fqdn => node[:app_mediawiki][:dns][:app_fqdn],
     :script_path => "/#{local_folder}",
