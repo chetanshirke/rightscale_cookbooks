@@ -16,8 +16,6 @@ depends "rightscale"
 depends "web_apache"
 
 recipe  "app_mediawiki::default", "Installs the mediawiki application server."
-recipe  "app_mediawiki::do_install_mediawiki", "Installs the mediwiki application server."
-recipe  "app_mediawiki::do_update_code", "Installs the mediawiki application server."
 
 attribute "app_mediawiki",
   :display_name => "PHP Mediawiki Application Settings",
