@@ -137,7 +137,6 @@ action :code_update do
   action :nothing
   end
 
-
   template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
   # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
@@ -154,8 +153,6 @@ action :code_update do
    source "ha_test_page.erb"
    cookbook "app_mediawiki"
    mode "0644"
-   variables(
-   )
  end
 
  # Restarting apache service.
