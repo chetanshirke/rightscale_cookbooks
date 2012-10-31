@@ -130,7 +130,8 @@ action :code_update do
 
   bash "install_program" do
     user "root"
-    cwd "/tmp"
+    cwd "/tmp" 
+    mode "0644"
     code <<-EOH
     tar -zxf #{package_name} -C "#{node[:app][:destination]}"
     EOH
