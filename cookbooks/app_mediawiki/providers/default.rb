@@ -140,8 +140,8 @@ action :code_update do
   template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
   # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
-  cookbook "app_mediawiki"
   mode "0644"
+  cookbook "app_mediawiki"
   variables(
     :app_fqdn => node[:app_mediawiki][:dns][:app_fqdn],
     :script_path => "/#{local_folder}",
@@ -151,10 +151,8 @@ action :code_update do
 
  template "#{node[:app][:destination]}/index.html" do
    action :create
-   backup false
    source "ha_test_page.erb"
    cookbook "app_mediawiki"
-   mode "0644"
  end
 
  # Restarting apache service.
