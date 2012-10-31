@@ -154,6 +154,12 @@ end
  action_restart
 end
 
+template "#{node[:app][:destination]}/index.html" do
+   source "ha_test_page.erb"
+   cookbook "app_mediawiki"
+   mode "0644"
+end
+
 action :setup_monitoring do
 
   log "  Monitoring resource is not implemented in php framework yet. Use apache monitoring instead."
