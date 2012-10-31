@@ -144,6 +144,7 @@ template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
   cookbook "app_mediawiki"
   variables(
     :app_fqdn => node[:app_mediawiki][:dns][:app_fqdn],
+    :script_path => "/#{local_folder}",
     :namespace => node[:app_mediawiki][:namespace]
   )
 end
