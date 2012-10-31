@@ -150,6 +150,8 @@ action :code_update do
  end
 
  template "#{node[:app][:destination]}/index.html" do
+   action :create
+   backup false
    source "ha_test_page.erb"
    cookbook "app_mediawiki"
    mode "0644"
