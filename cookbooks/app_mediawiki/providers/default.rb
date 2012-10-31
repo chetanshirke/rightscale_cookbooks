@@ -152,6 +152,7 @@ action :code_update do
  template "#{node[:app][:destination]}/index.html" do
    action :create
    source "ha_test_page.erb"
+   mode "0644"
    cookbook "app_mediawiki"
  end
 
