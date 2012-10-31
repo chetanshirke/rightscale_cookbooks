@@ -107,9 +107,7 @@
   "providing": {
   },
   "recipes": {
-    "app_mediawiki::default": "Installs the mediawiki application server.",
-    "app_mediawiki::do_update_code": "Installs the mediawiki application server.",
-    "app_mediawiki::do_install_mediawiki": "Installs the mediwiki application server."
+    "app_mediawiki::default": "Installs the mediawiki application server."
   },
   "platforms": {
   },
