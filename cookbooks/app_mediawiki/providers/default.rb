@@ -138,8 +138,8 @@ action :code_update do
   end
 
 
-template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
-# Writing settings to mediawiki configuration template.
+  template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
+  # Writing settings to mediawiki configuration template.
   source "LocalSettings.erb"
   cookbook "app_mediawiki"
   mode "0644"
@@ -148,16 +148,18 @@ template "#{node[:app][:destination]}/#{local_folder}/LocalSettings.php" do
     :script_path => "/#{local_folder}",
     :namespace => node[:app_mediawiki][:namespace]
   )
-end
+ end
 
- # Restarting apache service.
- action_restart
-end
-
-template "#{node[:app][:destination]}/index.html" do
+ template "#{node[:app][:destination]}/index.html" do
    source "ha_test_page.erb"
    cookbook "app_mediawiki"
    mode "0644"
+   variables(
+   )
+ end
+
+ # Restarting apache service.
+ action_restart
 end
 
 action :setup_monitoring do
