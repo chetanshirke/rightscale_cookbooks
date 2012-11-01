@@ -28,7 +28,7 @@ $wgEmergencyContact = "apache@<%=@lb_ip%>";
 $wgPasswordSender   = "apache@<%=@lb_ip%>";
 $wgEmailAuthentication = true;
 $wgDBtype 	    = "<%= node[:app][:db_adapter] %>";
-$wgDBserver         = "<%= node[:db][:dns][:master][:fqdn] %>";
+$wgDBserver         = "<%=@db_ip%>";
 $wgDBname           = "<%= node[:app][:database_name] %>";
 $wgDBuser           = "<%= node[:db][:application][:user] %>";
 $wgDBpassword       = "<%= node[:db][:application][:password] %>";
