@@ -48,3 +48,9 @@ attribute "app_mediawiki/destination",
   :required => "recommended",
   :default => "/home/webapps", 
   :recipes => ["app_mediawiki::default"]
+
+attribute "app_mediawiki/app_dns",
+  :display_name => "Domain name",
+  :description => "App_mediawiki application Domain name eg: test.example.com",
+  :required => "required",
+  :recipes => ["app_mediawiki::default"]

@@ -122,7 +122,6 @@ action :code_update do
   package_name = node[:app_mediawiki][:download_url].split('/').last
   local_folder = "#{package_name}".split('.')
   local_folder = "#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
-  lb_ip=`rs_tag -q "loadbalancer:default=lb" | grep private_i`.split('=').last.split('"').first
   db_ip=`rs_tag -q "database:active=true" |grep private_i`.split('=').last.split('"').first
   remote_file"/tmp/#{package_name}" do
         source "#{node[:app_mediawiki][:download_url]}"
@@ -145,7 +144,7 @@ action :code_update do
   cookbook "app_mediawiki"
   variables(
     :script_path => "/#{local_folder}",
-    :lb_ip => "#{lb_ip}",
+    :app_dns => "#{app_dns}",
     :db_ip => "#{db_ip}",
     :namespace => node[:app_mediawiki][:namespace]
   )
