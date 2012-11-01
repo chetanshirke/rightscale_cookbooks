@@ -1,6 +1,6 @@
 {
   "attributes": {
-    "app_mediawiki/dns/app_fqdn": {
+    "app_mediawiki/app_dns": {
       "required": "required",
       "calculated": false,
       "choice": [
@@ -10,8 +10,8 @@
       "recipes": [
         "app_mediawiki::default"
       ],
-      "description": "The fully qualified domain name for the application server.  Example: www.example.com",
-      "display_name": "Mediawiki application domain name"
+      "description": "App_mediawiki application Domain name eg: test.example.com",
+      "display_name": "Domain name"
     },
     "app_mediawiki": {
       "required": "optional",
