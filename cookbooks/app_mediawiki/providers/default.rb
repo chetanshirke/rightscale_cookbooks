@@ -123,6 +123,7 @@ action :code_update do
   local_folder = "#{package_name}".split('.')
   local_folder = "#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
   db_ip=`rs_tag -q "database:active=true" |grep private_i`.split('=').last.split('"').first
+
   remote_file"/tmp/#{package_name}" do
         source "#{node[:app_mediawiki][:download_url]}"
         notifies :run, "bash[install_program]", :immediately
@@ -144,7 +145,6 @@ action :code_update do
   cookbook "app_mediawiki"
   variables(
     :script_path => "/#{local_folder}",
-    :app_dns => "#{app_dns}",
     :db_ip => "#{db_ip}",
     :namespace => node[:app_mediawiki][:namespace]
   )
