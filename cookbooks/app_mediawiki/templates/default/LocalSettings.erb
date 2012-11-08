@@ -20,7 +20,7 @@ $wgSitename      = "<%=@namespace%>";
 $wgMetaNamespace = "<%=@namespace%>";
 $wgScriptPath       = "<%=@script_path%>";
 $wgScriptExtension  = ".php";
-$wgServer           = "http://<%= node[:app_mediawiki][:app_fqdn] %>";
+$wgServer           = "http://<%= node[:app_mediawiki][:app_dns] %>";
 $wgStylePath        = "$wgScriptPath/skins";
 $wgLogo             = "$wgStylePath/common/images/wiki.png";
 $wgEnableEmail      = true;
