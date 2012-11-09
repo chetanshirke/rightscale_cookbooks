@@ -167,12 +167,12 @@ action :code_update do
   )
  end
 
- template "#{node[:app][:destination]}/index.html" do
-   action :create
-   source "ha_test_page.erb"
-   mode "0644"
-   cookbook "app_mediawiki"
- end
+# template "#{node[:app][:destination]}/index.html" do
+#   action :create
+#   source "ha_test_page.erb"
+#   mode "0644"
+#   cookbook "app_mediawiki"
+# end
 
  # Restarting apache service.
  action_restart
