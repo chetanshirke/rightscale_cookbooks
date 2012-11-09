@@ -119,6 +119,23 @@ action :code_update do
   log "  Starting code update sequence"
   log "  Downloading project from download_url"
 
+# Download/Update application repository
+
+  deploy_dir = new_resource.destination
+
+  log "  Starting code update sequence"
+  log "  Current project doc root is set to #{deploy_dir}"
+  log "  Downloading project repo"
+
+  # Calling "repo" LWRP to download remote project repository
+  repo "default" do
+    destination deploy_dir
+    action node[:repo][:default][:perform_action].to_sym
+    app_user node[:app][:user]
+    repository node[:repo][:default][:repository]
+    persist false
+  end
+
   package_name = node[:app_mediawiki][:download_url].split('/').last
   local_folder = "#{package_name}".split('.')
   local_folder = "#{local_folder[0]}.#{local_folder[1]}.#{local_folder[2]}"
