@@ -1,5 +1,5 @@
 = RightScale App PHP Cookbook 
-test
+
 == DESCRIPTION:
 
 * Cookbook provides Apache + PHP implementation of the app LWRP.
